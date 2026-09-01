@@ -10,6 +10,8 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
+from ai_typography_material import material_fill
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets/banners/champions-league-2026/series/08-forward-dribble"
@@ -340,9 +342,7 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
     canvas.alpha_composite(alpha_layer(face.filter(ImageFilter.MaxFilter(23)), (4, 6, 10, 255)))
     canvas.alpha_composite(alpha_layer(face.filter(ImageFilter.MaxFilter(13)), (112, 61, 4, 255)))
     canvas.alpha_composite(alpha_layer(face.filter(ImageFilter.MaxFilter(7)), (255, 205, 75, 255)))
-    fill = gradient(canvas.size, (255, 248, 187), (190, 105, 8))
-    fill.putalpha(face)
-    canvas.alpha_composite(fill)
+    canvas.alpha_composite(material_fill(face, 0))
 
     # Top-left bevel and lower-right amber shade create the metal face.
     highlight = ImageChops.subtract(
@@ -389,7 +389,7 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
             fill=105,
         )
         stripe = stripe.filter(ImageFilter.GaussianBlur(2 * S))
-        clipped = ImageChops.multiply(title_face, stripe)
+        clipped = ImageChops.multiply(title_face, stripe).point(lambda value: round(value * 0.40))
         glint = Image.new("RGBA", title.size, (255, 255, 234, 0))
         glint.putalpha(clipped)
         glints.append(glint.resize((title.width // 2, title.height // 2), Image.Resampling.LANCZOS))

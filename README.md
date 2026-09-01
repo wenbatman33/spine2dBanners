@@ -4,7 +4,7 @@
 
 ```text
 spine2dAssets/
-├── index.html       八款 Banner 实际展示页（不是转址）
+├── index.html       十一款 Banner 实际展示页
 ├── banners/         每款都可整包复制的独立静态 HTML
 ├── vendor/          总览页共用的 Spine Player
 ├── assets/          可編輯來源
@@ -15,7 +15,7 @@ spine2dAssets/
 
 ## 最常使用的入口
 
-- Banner 八款全覽：`index.html`
+- Banner 十一款全覽：`index.html`
 - 单款 Banner：复制 `banners/对应名称/` 整个资料夹，其中 `index.html` 可直接播放
 - 勇者 Spine 4.3 專案：`assets/characters/blue_guard_hero/project/blue-guard-hero.spine`
 - 勇者遊戲引擎輸出：`assets/characters/blue_guard_hero/runtime/`
@@ -25,12 +25,15 @@ spine2dAssets/
 
 - <http://127.0.0.1:4188/>
 - <http://127.0.0.1:4188/banners/08-forward-dribble/>
+- <http://127.0.0.1:4188/banners/09-treasure-chest/>
+- <http://127.0.0.1:4188/banners/10-operative-idle/>
+- <http://127.0.0.1:4188/banners/11-beauty-wink/>
 
 ## 目前正式版本
 
 | 素材 | 正式版本 | 位置 |
 | --- | --- | --- |
-| 八款廣告 Banner | Spine 3.8.99 | `banners/` |
+| 十一款廣告 Banner | Spine 3.8.99 | `banners/` |
 | 女神送禮 Banner | 單一連續人物 Mesh、2× 貼圖 | `series/06-gift-goddess/` |
 | 藍衣盾劍勇者 | Spine 4.3 V4 | `assets/characters/blue_guard_hero/` |
 | 盾劍動作模板 | Essential v1 | `assets/animation_templates/` |

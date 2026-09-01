@@ -1,0 +1,96 @@
+banner.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: false
+  xy: 6, 6
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+operative
+  rotate: false
+  xy: 1252, 6
+  size: 340, 520
+  orig: 340, 520
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 6, 556
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_0
+  rotate: false
+  xy: 512, 556
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_1
+  rotate: false
+  xy: 1018, 556
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_2
+  rotate: false
+  xy: 1524, 556
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 6, 805
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 512, 805
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_5
+  rotate: false
+  xy: 1018, 805
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+title_glint_6
+  rotate: false
+  xy: 1524, 805
+  size: 500, 243
+  orig: 500, 243
+  offset: 0, 0
+  index: -1
+cta
+  rotate: false
+  xy: 6, 1054
+  size: 364, 96
+  orig: 364, 96
+  offset: 0, 0
+  index: -1
+subtitle
+  rotate: false
+  xy: 376, 1054
+  size: 552, 78
+  orig: 552, 78
+  offset: 0, 0
+  index: -1
+kicker
+  rotate: false
+  xy: 934, 1054
+  size: 250, 32
+  orig: 250, 32
+  offset: 0, 0
+  index: -1

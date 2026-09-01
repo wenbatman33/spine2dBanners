@@ -10,6 +10,8 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
+from ai_typography_material import material_fill
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets/banners/champions-league-2026/series/07-lucky-tiger"
@@ -121,9 +123,7 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
     canvas.alpha_composite(alpha_layer(face.filter(ImageFilter.MaxFilter(11)), (39, 187, 86, 255)))
     canvas.alpha_composite(alpha_layer(face.filter(ImageFilter.MaxFilter(5)), (255, 205, 44, 255)))
 
-    fill = gradient(canvas.size, (255, 238, 92), (255, 154, 15))
-    fill.putalpha(face)
-    canvas.alpha_composite(fill)
+    canvas.alpha_composite(material_fill(face, 2))
     upper = ImageChops.subtract(
         face,
         face.transform(face.size, Image.Transform.AFFINE, (1, 0, -2 * S, 0, 1, -2 * S), resample=Image.Resampling.BILINEAR),
@@ -142,7 +142,7 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
             fill=95,
         )
         stripe = stripe.filter(ImageFilter.GaussianBlur(2 * S))
-        clipped = ImageChops.multiply(title_face, stripe)
+        clipped = ImageChops.multiply(title_face, stripe).point(lambda value: round(value * 0.42))
         glint = Image.new("RGBA", title.size, (255, 255, 220, 0))
         glint.putalpha(clipped)
         glints.append(glint.resize((title.width // 2, title.height // 2), Image.Resampling.LANCZOS))

@@ -1,0 +1,1 @@
+<iframe src="./banners/03-rivalry/index.html" title="豪门生死战" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>

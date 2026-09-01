@@ -7,10 +7,13 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps
 
+from ai_typography_material import material_fill
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "assets/banners/champions-league-2026/spine-3.8/source-text-v1"
-FONT = Path("/System/Library/Fonts/STHeiti Medium.ttc")
+FONT = Path("/System/Library/Fonts/Hiragino Sans GB.ttc")
+FONT_INDEX = 2
 SCALE = 3
 OUTPUT_SCALE = 2
 
@@ -36,8 +39,9 @@ def render_text_layer(
     stroke_width: int,
     shadow: bool = True,
     extrude_depth: int = 0,
+    material_index: int | None = None,
 ) -> Image.Image:
-    font = ImageFont.truetype(str(FONT), font_size * SCALE)
+    font = ImageFont.truetype(str(FONT), font_size * SCALE, index=FONT_INDEX)
     probe = Image.new("L", (8, 8))
     bbox = ImageDraw.Draw(probe).textbbox(
         (0, 0), text, font=font, stroke_width=stroke_width * SCALE
@@ -89,8 +93,11 @@ def render_text_layer(
 
     fill_mask = Image.new("L", layer.size, 0)
     ImageDraw.Draw(fill_mask).text(origin, text, font=font, fill=255)
-    fill = linear_gradient(layer.size, top, bottom)
-    fill.putalpha(fill_mask)
+    if material_index is None:
+        fill = linear_gradient(layer.size, top, bottom)
+        fill.putalpha(fill_mask)
+    else:
+        fill = material_fill(fill_mask, material_index)
     layer.alpha_composite(fill)
 
     # A restrained top-edge specular highlight gives the title a bevel without
@@ -145,7 +152,7 @@ def render_cta() -> Image.Image:
         outline=(255, 120, 53, 220),
         width=SCALE,
     )
-    font = ImageFont.truetype(str(FONT), 26 * SCALE)
+    font = ImageFont.truetype(str(FONT), 26 * SCALE, index=FONT_INDEX)
     text = "立即关注赛程"
     bbox = draw.textbbox((0, 0), text, font=font, stroke_width=SCALE)
     position = ((size[0] - (bbox[2] - bbox[0])) // 2, 23 * SCALE - (bbox[3] - bbox[1]) // 2 - bbox[1])
@@ -180,7 +187,7 @@ def render_title_glints(title: Image.Image, frame_count: int = 5) -> list[Image.
             (centre + 18, title.height),
             (centre + 7, title.height),
         ]
-        ImageDraw.Draw(stripe).polygon(polygon, fill=190)
+        ImageDraw.Draw(stripe).polygon(polygon, fill=78)
         stripe = stripe.filter(ImageFilter.GaussianBlur(2.2))
         clipped = ImageChops.multiply(glyph_fill, stripe)
         glint = Image.new("RGBA", title.size, (255, 241, 151, 0))
@@ -200,6 +207,7 @@ def build_typography_assets() -> dict[str, Image.Image]:
             (64, 34, 4, 255),
             3,
             extrude_depth=5,
+            material_index=0,
         ),
         "subtitle": render_text_layer(
             "2026/27 群星决战欧洲之巅",
@@ -209,6 +217,7 @@ def build_typography_assets() -> dict[str, Image.Image]:
             (15, 34, 75, 255),
             2,
             shadow=False,
+            material_index=1,
         ),
         "date": render_text_layer(
             "9月8日  热血开战",
@@ -217,6 +226,7 @@ def build_typography_assets() -> dict[str, Image.Image]:
             (240, 176, 54, 255),
             (76, 41, 5, 255),
             2,
+            material_index=0,
         ),
         "cta": render_cta(),
     }

@@ -1,0 +1,16 @@
+{
+  "atlas": "2048x2048",
+  "atlas_bytes": 484010,
+  "duration": 2.8,
+  "mesh_vertices": 285,
+  "single_continuous_character": true,
+  "idle_motion": [
+    "breathing",
+    "weight_shift",
+    "head_turn",
+    "weapon_sway"
+  ],
+  "background_motion": false,
+  "scale_animation": false,
+  "portable": true
+}

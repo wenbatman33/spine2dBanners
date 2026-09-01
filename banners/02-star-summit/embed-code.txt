@@ -1,0 +1,1 @@
+<iframe src="./banners/02-star-summit/index.html" title="群星巅峰夜" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>

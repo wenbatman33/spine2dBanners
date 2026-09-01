@@ -23,6 +23,9 @@ BANNERS = [
     ("06-gift-goddess", "女神生日限定", PROJECT / "series/06-gift-goddess/spine-3.8/runtime", "banner"),
     ("07-lucky-tiger", "福运小虎", PROJECT / "series/07-lucky-tiger/spine-3.8/runtime", "banner"),
     ("08-forward-dribble", "一路带球向前冲", PROJECT / "series/08-forward-dribble/spine-3.8/runtime", "banner"),
+    ("09-treasure-chest", "开箱暴击", PROJECT / "series/09-treasure-chest/spine-3.8/runtime", "banner"),
+    ("10-operative-idle", "王牌特勤", PROJECT / "series/10-operative-idle/spine-3.8/runtime", "banner"),
+    ("11-beauty-wink", "心动奖金眨眼挑战", PROJECT / "series/11-beauty-wink/spine-3.8/runtime", "banner"),
 ]
 
 HTML = """<!doctype html>
@@ -49,13 +52,16 @@ HTML = """<!doctype html>
         loop:true,
         alpha:true,
         premultipliedAlpha:false,
-        showControls:true,
+        showControls:false,
         backgroundColor:"#020812",
         viewport:{{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}}
       }});
     </script>
   </body>
 </html>
+"""
+
+EMBED = """<iframe src="./banners/{slug}/index.html" title="{title}" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>
 """
 
 
@@ -84,6 +90,9 @@ def export_banner(slug: str, title: str, source: Path, basename: str) -> str:
     shutil.copy2(SHARED_VENDOR / "spine-player-3.8.js", vendor_dir / "spine-player-3.8.js")
     (target / "index.html").write_text(
         HTML.format(title=title, asset_id=digest), encoding="utf-8"
+    )
+    (target / "embed-code.txt").write_text(
+        EMBED.format(slug=slug, title=title), encoding="utf-8"
     )
     return digest
 

@@ -17,6 +17,8 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
+from ai_typography_material import material_fill
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_ROOT = ROOT / "assets/banners/champions-league-2026/series/06-gift-goddess"
@@ -191,31 +193,8 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
     # Bright upper faces, saturated midtones and dark lower edges create the
     # same metal-sign depth as the gold reference while retaining this
     # campaign's magenta/cyan identity.
-    top_fill = vertical_gradient(
-        canvas.size,
-        [
-            (0.00, (255, 255, 255, 255)),
-            (0.12, (255, 245, 252, 255)),
-            (0.31, (255, 150, 224, 255)),
-            (0.48, (236, 38, 172, 255)),
-            (0.57, (118, 8, 105, 255)),
-            (1.00, (78, 3, 72, 255)),
-        ],
-    )
-    top_fill.putalpha(top_mask)
-    canvas.alpha_composite(top_fill)
-    bottom_fill = vertical_gradient(
-        canvas.size,
-        [
-            (0.00, (255, 255, 255, 255)),
-            (0.52, (255, 255, 255, 255)),
-            (0.64, (154, 249, 255, 255)),
-            (0.83, (37, 193, 244, 255)),
-            (1.00, (8, 72, 168, 255)),
-        ],
-    )
-    bottom_fill.putalpha(bottom_mask)
-    canvas.alpha_composite(bottom_fill)
+    canvas.alpha_composite(material_fill(top_mask, 3))
+    canvas.alpha_composite(material_fill(bottom_mask, 5))
 
     # Fine upper-left bevel and a dark lower-right inner lip.
     upper_shift = combined.transform(
@@ -263,7 +242,7 @@ def render_title() -> tuple[Image.Image, list[Image.Image]]:
             fill=196,
         )
         stripe = stripe.filter(ImageFilter.GaussianBlur(2 * s))
-        clipped = ImageChops.multiply(title_alpha, stripe)
+        clipped = ImageChops.multiply(title_alpha, stripe).point(lambda value: round(value * 0.40))
         lit_bbox = clipped.getbbox()
         if lit_bbox:
             spark = Image.new("L", title.size, 0)

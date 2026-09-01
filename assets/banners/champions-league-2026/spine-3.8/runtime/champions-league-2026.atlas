@@ -41,69 +41,69 @@ trophy
 title
   rotate: false
   xy: 490, 564
-  size: 568, 132
-  orig: 568, 132
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 subtitle
   rotate: false
   xy: 1068, 564
-  size: 477, 79
-  orig: 477, 79
+  size: 515, 82
+  orig: 515, 82
   offset: 0, 0
   index: -1
 date
   rotate: false
-  xy: 1555, 564
-  size: 425, 91
-  orig: 425, 91
+  xy: 10, 1074
+  size: 448, 91
+  orig: 448, 91
   offset: 0, 0
   index: -1
 cta
   rotate: false
-  xy: 10, 1074
+  xy: 468, 1074
   size: 508, 110
   orig: 508, 110
   offset: 0, 0
   index: -1
 title_glint_0
   rotate: false
-  xy: 528, 1074
-  size: 568, 132
-  orig: 568, 132
+  xy: 986, 1074
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 title_glint_1
   rotate: false
-  xy: 1106, 1074
-  size: 568, 132
-  orig: 568, 132
+  xy: 10, 1219
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 title_glint_2
   rotate: false
-  xy: 10, 1216
-  size: 568, 132
-  orig: 568, 132
+  xy: 588, 1219
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 title_glint_3
   rotate: false
-  xy: 588, 1216
-  size: 568, 132
-  orig: 568, 132
+  xy: 1166, 1219
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 title_glint_4
   rotate: false
-  xy: 1166, 1216
-  size: 568, 132
-  orig: 568, 132
+  xy: 10, 1364
+  size: 568, 135
+  orig: 568, 135
   offset: 0, 0
   index: -1
 fx_flare_clean
   rotate: false
-  xy: 1744, 1216
+  xy: 588, 1364
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

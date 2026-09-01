@@ -1,0 +1,138 @@
+banner.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: false
+  xy: 6, 6
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+flare
+  rotate: false
+  xy: 1252, 6
+  size: 680, 420
+  orig: 680, 420
+  offset: 0, 0
+  index: -1
+chest_4
+  rotate: false
+  xy: 6, 556
+  size: 394, 358
+  orig: 394, 358
+  offset: 0, 0
+  index: -1
+chest_5
+  rotate: false
+  xy: 406, 556
+  size: 396, 358
+  orig: 396, 358
+  offset: 0, 0
+  index: -1
+chest_3
+  rotate: false
+  xy: 808, 556
+  size: 387, 348
+  orig: 387, 348
+  offset: 0, 0
+  index: -1
+chest_2
+  rotate: false
+  xy: 1201, 556
+  size: 382, 307
+  orig: 382, 307
+  offset: 0, 0
+  index: -1
+chest_1
+  rotate: false
+  xy: 1589, 556
+  size: 378, 297
+  orig: 378, 297
+  offset: 0, 0
+  index: -1
+chest_0
+  rotate: false
+  xy: 6, 920
+  size: 379, 296
+  orig: 379, 296
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 391, 920
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_0
+  rotate: false
+  xy: 891, 920
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_1
+  rotate: false
+  xy: 1391, 920
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_2
+  rotate: false
+  xy: 6, 1222
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 506, 1222
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 1006, 1222
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_5
+  rotate: false
+  xy: 1506, 1222
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+title_glint_6
+  rotate: false
+  xy: 6, 1465
+  size: 494, 237
+  orig: 494, 237
+  offset: 0, 0
+  index: -1
+cta
+  rotate: false
+  xy: 506, 1465
+  size: 360, 96
+  orig: 360, 96
+  offset: 0, 0
+  index: -1
+subtitle
+  rotate: false
+  xy: 872, 1465
+  size: 536, 80
+  orig: 536, 80
+  offset: 0, 0
+  index: -1
+kicker
+  rotate: false
+  xy: 1414, 1465
+  size: 301, 36
+  orig: 301, 36
+  offset: 0, 0
+  index: -1

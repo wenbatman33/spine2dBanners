@@ -10,10 +10,6 @@
       * { box-sizing:border-box; }
       body { margin:0; min-height:100vh; background:radial-gradient(circle at 50% 0%,rgba(29,92,180,.28),transparent 38%),#030712; }
       main { width:min(100%,1380px); margin:auto; padding:36px 26px 64px; }
-      header { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:24px; }
-      h1 { margin:0; font-size:clamp(26px,4vw,44px); }
-      header p { margin:8px 0 0; color:#97b0d1; }
-      .hint { max-width:470px; padding:10px 14px; border:1px solid #31557e; border-radius:12px; background:#0b1b34; color:#c3daf6; font-size:13px; line-height:1.55; }
       .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
       .card { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; box-shadow:0 18px 50px rgba(0,0,0,.4); }
       .player { width:100%; aspect-ratio:620/272; background:#020812; border-bottom:1px solid #1b3553; }
@@ -22,17 +18,21 @@
       a { color:#7ce9e3; text-decoration:none; white-space:nowrap; }
       a:hover { text-decoration:underline; }
       .meta { color:#89a5c8; font-size:12px; text-align:right; }
-      @media (max-width:840px) { .grid{grid-template-columns:1fr;} header{align-items:start;flex-direction:column;} }
+      .embed { padding:0 16px 16px; }
+      .embed-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; color:#b9d0ed; font-size:12px; }
+      .copy-embed { appearance:none; border:1px solid #315b87; border-radius:8px; padding:5px 10px; background:#0b1d36; color:#86f7f0; cursor:pointer; font:inherit; }
+      .copy-embed:hover { background:#12315a; }
+      .embed code { display:block; min-height:72px; padding:10px 12px; overflow:auto; border:1px solid #1c3858; border-radius:10px; background:#020813; color:#bcd3ef; font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; white-space:pre-wrap; overflow-wrap:anywhere; user-select:all; }
+      @media (max-width:840px) { .grid{grid-template-columns:1fr;} }
       @media (max-width:520px) { main{padding:22px 12px 40px;} .grid{gap:15px;} .caption{align-items:start;flex-direction:column;} .meta{text-align:left;} }
     </style>
   </head>
   <body>
     <main>
-      <header>
-        <div><h1>Spine Banner · 八款成品</h1><p>这个页面本身就是入口，没有转址。</p></div>
-        <div class="hint">每张卡片都可开启独立版；复制对应的 <b>banners/名称/</b> 文件夹，就能在其他静态网站直接使用。</div>
-      </header>
       <section class="grid">
+        <article class="card"><div class="player" id="p11"></div><div class="caption"><h2>11 · 心动奖金眨眼挑战</h2><span class="meta">单一人物底图 · 双眼眨眼 / 单眼媚眼 · <a href="./banners/11-beauty-wink/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p10"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">单一人物 Mesh · 呼吸 / 重心 / 转头 · <a href="./banners/10-operative-idle/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p09"></div><div class="caption"><h2>09 · 开箱暴击</h2><span class="meta">六段连续开箱 · 交叉过渡 · <a href="./banners/09-treasure-chest/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p08"></div><div class="caption"><h2>08 · 一路带球向前冲</h2><span class="meta">8 格完整人体跑步序列 · <a href="./banners/08-forward-dribble/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p07"></div><div class="caption"><h2>07 · 福运小虎</h2><span class="meta">半身挥手 · <a href="./banners/07-lucky-tiger/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p06"></div><div class="caption"><h2>06 · 女神生日限定</h2><span class="meta">礼盒旋转 · <a href="./banners/06-gift-goddess/index.html">开启独立版</a></span></div></article>
@@ -45,17 +45,54 @@
     </main>
     <script src="./vendor/spine-player-3.8.js"></script>
     <script>
-      const assetVersions = {"01-champions-night":"31515e6ece39","02-star-summit":"3bf450edd27d","03-rivalry":"5dfb55ca79f0","04-champion-road":"676aa4b52abd","05-striker-storm":"f9842cc3deee","06-gift-goddess":"4e5dc9f1d145","07-lucky-tiger":"e4f69901eb87","08-forward-dribble":"b3d822a3c0b9"};
+      const assetVersions = {"01-champions-night":"be03c2f3b350","02-star-summit":"3bf450edd27d","03-rivalry":"5dfb55ca79f0","04-champion-road":"676aa4b52abd","05-striker-storm":"f9842cc3deee","06-gift-goddess":"deccaf255b75","07-lucky-tiger":"126bbb96a7e6","08-forward-dribble":"521423a1276f","09-treasure-chest":"e23deccd4829","10-operative-idle":"363f5fec84f7","11-beauty-wink":"b2dc0ad0da97"};
       const banners = [
-        ["p08","08-forward-dribble"],["p07","07-lucky-tiger"],["p06","06-gift-goddess"],["p01","01-champions-night"],
+        ["p11","11-beauty-wink"],["p10","10-operative-idle"],["p09","09-treasure-chest"],["p08","08-forward-dribble"],["p07","07-lucky-tiger"],["p06","06-gift-goddess"],["p01","01-champions-night"],
         ["p02","02-star-summit"],["p03","03-rivalry"],["p04","04-champion-road"],["p05","05-striker-storm"]
       ];
       for (const [id,slug] of banners) new spine.SpinePlayer(id,{
         jsonUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.json`,
         atlasUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.atlas`,
-        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:true,backgroundColor:"#020812",
+        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:false,backgroundColor:"#020812",
         viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
       });
+
+      for (const card of document.querySelectorAll(".card")) {
+        const link = card.querySelector('a[href^="./banners/"]');
+        if (!link) continue;
+        const title = card.querySelector("h2").textContent.trim();
+        const src = link.getAttribute("href");
+        const snippet = `<iframe src="${src}" title="${title}" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>`;
+        const embed = document.createElement("div");
+        embed.className = "embed";
+        const heading = document.createElement("div");
+        heading.className = "embed-head";
+        const label = document.createElement("span");
+        label.textContent = "嵌入语法";
+        const button = document.createElement("button");
+        button.className = "copy-embed";
+        button.type = "button";
+        button.textContent = "复制";
+        const code = document.createElement("code");
+        code.textContent = snippet;
+        button.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(snippet);
+          } catch (_) {
+            const input = document.createElement("textarea");
+            input.value = snippet;
+            document.body.append(input);
+            input.select();
+            document.execCommand("copy");
+            input.remove();
+          }
+          button.textContent = "已复制";
+          setTimeout(() => button.textContent = "复制", 1200);
+        });
+        heading.append(label, button);
+        embed.append(heading, code);
+        card.append(embed);
+      }
     </script>
   </body>
 </html>
