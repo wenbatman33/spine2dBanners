@@ -1,0 +1,96 @@
+banner.png?asset=58c2bea24345
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tiger
+  rotate: false
+  xy: 6, 6
+  size: 900, 900
+  orig: 900, 900
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 6, 912
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+bag
+  rotate: false
+  xy: 1252, 912
+  size: 419, 450
+  orig: 419, 450
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 6, 1462
+  size: 453, 233
+  orig: 453, 233
+  offset: 0, 0
+  index: -1
+title_glint_0
+  rotate: false
+  xy: 465, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+title_glint_1
+  rotate: false
+  xy: 697, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+title_glint_2
+  rotate: false
+  xy: 929, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 1161, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 1393, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+title_glint_5
+  rotate: false
+  xy: 1625, 1462
+  size: 226, 116
+  orig: 226, 116
+  offset: 0, 0
+  index: -1
+cta
+  rotate: false
+  xy: 6, 1701
+  size: 332, 96
+  orig: 332, 96
+  offset: 0, 0
+  index: -1
+bag_label
+  rotate: false
+  xy: 344, 1701
+  size: 316, 63
+  orig: 316, 63
+  offset: 0, 0
+  index: -1
+kicker
+  rotate: false
+  xy: 666, 1701
+  size: 233, 32
+  orig: 233, 32
+  offset: 0, 0
+  index: -1

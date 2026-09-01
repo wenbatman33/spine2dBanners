@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>女神送礼 · Spine Player</title>
+    <link rel="stylesheet" href="../player/vendor/spine-player-3.8.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: #030712;
+        color: #f7f4ff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 66% 16%, rgba(96, 44, 178, 0.38), transparent 34%),
+          radial-gradient(circle at 30% 8%, rgba(13, 132, 190, 0.26), transparent 36%),
+          #030712;
+      }
+      main { width: min(1100px, 100%); padding: 28px; }
+      h1 { margin: 0 0 8px; font-size: clamp(24px, 4vw, 42px); }
+      p { margin: 0 0 20px; color: #a7bedc; }
+      #player {
+        width: 100%;
+        aspect-ratio: 620 / 272;
+        overflow: hidden;
+        border: 1px solid rgba(105, 204, 255, 0.38);
+        border-radius: 18px;
+        background: #02040d;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+      .note { margin-top: 12px; font-size: 13px; color: #7898bd; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>女神生日限定 · 礼物加码开送！</h1>
+      <p>单张完整人物 Mesh、手掌局部变形与跟随礼物；前景分层、标题扫光，不使用人物 Sprite Sheet。</p>
+      <div id="player"></div>
+      <div class="note">Spine 3.8.99 · 620×272 · 2× 清晰贴图 · 0.97 秒循环 · 单一连续人物</div>
+    </main>
+    <script src="../player/vendor/spine-player-3.8.js?retina=2"></script>
+    <script>
+      const freshGiftAssets = Date.now();
+      new spine.SpinePlayer("player", {
+        jsonUrl: `../series/06-gift-goddess/spine-3.8/runtime/banner.json?fresh=${freshGiftAssets}`,
+        atlasUrl: `../series/06-gift-goddess/spine-3.8/runtime/banner.atlas?fresh=${freshGiftAssets}`,
+        animation: "animation",
+        loop: true,
+        alpha: true,
+        premultipliedAlpha: false,
+        showControls: true,
+        backgroundColor: "#02040d",
+        viewport: {
+          x: -310,
+          y: -136,
+          width: 620,
+          height: 272,
+          padLeft: "0%",
+          padRight: "0%",
+          padTop: "0%",
+          padBottom: "0%"
+        }
+      });
+    </script>
+  </body>
+</html>

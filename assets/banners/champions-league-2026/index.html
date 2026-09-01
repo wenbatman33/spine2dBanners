@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="../../../" />
+    <title>Spine Banner · 可携式成品</title>
+    <link rel="stylesheet" href="./vendor/spine-player-3.8.css" />
+    <style>
+      :root { color-scheme:dark; font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; background:#030712; color:#f4f8ff; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-height:100vh; background:radial-gradient(circle at 50% 0%,rgba(29,92,180,.28),transparent 38%),#030712; }
+      main { width:min(100%,1380px); margin:auto; padding:36px 26px 64px; }
+      header { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:24px; }
+      h1 { margin:0; font-size:clamp(26px,4vw,44px); }
+      header p { margin:8px 0 0; color:#97b0d1; }
+      .hint { max-width:470px; padding:10px 14px; border:1px solid #31557e; border-radius:12px; background:#0b1b34; color:#c3daf6; font-size:13px; line-height:1.55; }
+      .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+      .card { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; box-shadow:0 18px 50px rgba(0,0,0,.4); }
+      .player { width:100%; aspect-ratio:620/272; background:#020812; border-bottom:1px solid #1b3553; }
+      .caption { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 16px 16px; }
+      h2 { margin:0; font-size:17px; }
+      a { color:#7ce9e3; text-decoration:none; white-space:nowrap; }
+      a:hover { text-decoration:underline; }
+      .meta { color:#89a5c8; font-size:12px; text-align:right; }
+      @media (max-width:840px) { .grid{grid-template-columns:1fr;} header{align-items:start;flex-direction:column;} }
+      @media (max-width:520px) { main{padding:22px 12px 40px;} .grid{gap:15px;} .caption{align-items:start;flex-direction:column;} .meta{text-align:left;} }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div><h1>Spine Banner · 八款成品</h1><p>这个页面本身就是入口，没有转址。</p></div>
+        <div class="hint">每张卡片都可开启独立版；复制对应的 <b>banners/名称/</b> 文件夹，就能在其他静态网站直接使用。</div>
+      </header>
+      <section class="grid">
+        <article class="card"><div class="player" id="p08"></div><div class="caption"><h2>08 · 一路带球向前冲</h2><span class="meta">8 格完整人体跑步序列 · <a href="./banners/08-forward-dribble/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p07"></div><div class="caption"><h2>07 · 福运小虎</h2><span class="meta">半身挥手 · <a href="./banners/07-lucky-tiger/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p06"></div><div class="caption"><h2>06 · 女神生日限定</h2><span class="meta">礼盒旋转 · <a href="./banners/06-gift-goddess/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p01"></div><div class="caption"><h2>01 · 欧冠巅峰之夜</h2><span class="meta">奖杯爆光 · <a href="./banners/01-champions-night/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p02"></div><div class="caption"><h2>02 · 群星巅峰夜</h2><span class="meta">慢推镜 · <a href="./banners/02-star-summit/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p03"></div><div class="caption"><h2>03 · 豪门生死战</h2><span class="meta">震屏冲击 · <a href="./banners/03-rivalry/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p04"></div><div class="caption"><h2>04 · 冠军之路</h2><span class="meta">镜头漂移 · <a href="./banners/04-champion-road/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" id="p05"></div><div class="caption"><h2>05 · 锋线风暴</h2><span class="meta">进球爆光 · <a href="./banners/05-striker-storm/index.html">开启独立版</a></span></div></article>
+      </section>
+    </main>
+    <script src="./vendor/spine-player-3.8.js"></script>
+    <script>
+      const assetVersions = {"01-champions-night":"31515e6ece39","02-star-summit":"3bf450edd27d","03-rivalry":"5dfb55ca79f0","04-champion-road":"676aa4b52abd","05-striker-storm":"f9842cc3deee","06-gift-goddess":"4e5dc9f1d145","07-lucky-tiger":"e4f69901eb87","08-forward-dribble":"b3d822a3c0b9"};
+      const banners = [
+        ["p08","08-forward-dribble"],["p07","07-lucky-tiger"],["p06","06-gift-goddess"],["p01","01-champions-night"],
+        ["p02","02-star-summit"],["p03","03-rivalry"],["p04","04-champion-road"],["p05","05-striker-storm"]
+      ];
+      for (const [id,slug] of banners) new spine.SpinePlayer(id,{
+        jsonUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.json`,
+        atlasUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.atlas`,
+        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:true,backgroundColor:"#020812",
+        viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
+      });
+    </script>
+  </body>
+</html>

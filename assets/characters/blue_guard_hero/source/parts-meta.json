@@ -1,0 +1,351 @@
+{
+  "source": "assets/characters/blue_guard_hero/source/rig-master.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "origin_px": [
+    512,
+    1410
+  ],
+  "alpha_floor": 16,
+  "padding": 24,
+  "parts": {
+    "leg_rear_lower": {
+      "bbox": [
+        509,
+        932,
+        733,
+        1425
+      ],
+      "size": [
+        224,
+        493
+      ],
+      "pivot_px": [
+        610,
+        1015
+      ],
+      "pivot_world": [
+        98,
+        395
+      ],
+      "pivot_in_crop": [
+        101,
+        83
+      ]
+    },
+    "leg_rear_thigh": {
+      "bbox": [
+        486,
+        776,
+        679,
+        1085
+      ],
+      "size": [
+        193,
+        309
+      ],
+      "pivot_px": [
+        565,
+        825
+      ],
+      "pivot_world": [
+        53,
+        585
+      ],
+      "pivot_in_crop": [
+        79,
+        49
+      ]
+    },
+    "leg_front_lower": {
+      "bbox": [
+        268,
+        935,
+        494,
+        1438
+      ],
+      "size": [
+        226,
+        503
+      ],
+      "pivot_px": [
+        405,
+        1015
+      ],
+      "pivot_world": [
+        -107,
+        395
+      ],
+      "pivot_in_crop": [
+        137,
+        80
+      ]
+    },
+    "leg_front_thigh": {
+      "bbox": [
+        332,
+        772,
+        535,
+        1085
+      ],
+      "size": [
+        203,
+        313
+      ],
+      "pivot_px": [
+        450,
+        825
+      ],
+      "pivot_world": [
+        -62,
+        585
+      ],
+      "pivot_in_crop": [
+        118,
+        53
+      ]
+    },
+    "torso": {
+      "bbox": [
+        307,
+        290,
+        707,
+        929
+      ],
+      "size": [
+        400,
+        639
+      ],
+      "pivot_px": [
+        512,
+        800
+      ],
+      "pivot_world": [
+        0,
+        610
+      ],
+      "pivot_in_crop": [
+        205,
+        510
+      ]
+    },
+    "arm_r_upper": {
+      "bbox": [
+        260,
+        343,
+        457,
+        628
+      ],
+      "size": [
+        197,
+        285
+      ],
+      "pivot_px": [
+        370,
+        435
+      ],
+      "pivot_world": [
+        -142,
+        975
+      ],
+      "pivot_in_crop": [
+        110,
+        92
+      ]
+    },
+    "arm_r_forearm": {
+      "bbox": [
+        188,
+        521,
+        377,
+        847
+      ],
+      "size": [
+        189,
+        326
+      ],
+      "pivot_px": [
+        310,
+        595
+      ],
+      "pivot_world": [
+        -202,
+        815
+      ],
+      "pivot_in_crop": [
+        122,
+        74
+      ],
+      "grip_px": [
+        246,
+        775
+      ],
+      "grip_world": [
+        -266,
+        635
+      ],
+      "grip_in_crop": [
+        58,
+        254
+      ]
+    },
+    "arm_l_upper": {
+      "bbox": [
+        582,
+        331,
+        728,
+        637
+      ],
+      "size": [
+        146,
+        306
+      ],
+      "pivot_px": [
+        650,
+        430
+      ],
+      "pivot_world": [
+        138,
+        980
+      ],
+      "pivot_in_crop": [
+        68,
+        99
+      ]
+    },
+    "arm_l_forearm": {
+      "bbox": [
+        636,
+        511,
+        820,
+        848
+      ],
+      "size": [
+        184,
+        337
+      ],
+      "pivot_px": [
+        694,
+        590
+      ],
+      "pivot_world": [
+        182,
+        820
+      ],
+      "pivot_in_crop": [
+        58,
+        79
+      ],
+      "grip_px": [
+        770,
+        775
+      ],
+      "grip_world": [
+        258,
+        635
+      ],
+      "grip_in_crop": [
+        134,
+        264
+      ]
+    },
+    "head": {
+      "bbox": [
+        373,
+        91,
+        657,
+        405
+      ],
+      "size": [
+        284,
+        314
+      ],
+      "pivot_px": [
+        512,
+        350
+      ],
+      "pivot_world": [
+        0,
+        1060
+      ],
+      "pivot_in_crop": [
+        139,
+        259
+      ]
+    },
+    "sword": {
+      "bbox": [
+        0,
+        392,
+        181,
+        1218
+      ],
+      "size": [
+        181,
+        826
+      ],
+      "pivot_px": [
+        80,
+        1060
+      ],
+      "pivot_world": [
+        -432,
+        350
+      ],
+      "pivot_in_crop": [
+        80,
+        668
+      ],
+      "grip_px": [
+        80,
+        1060
+      ],
+      "grip_world": [
+        -432,
+        350
+      ],
+      "grip_in_crop": [
+        80,
+        668
+      ]
+    },
+    "shield": {
+      "bbox": [
+        728,
+        863,
+        1024,
+        1252
+      ],
+      "size": [
+        296,
+        389
+      ],
+      "pivot_px": [
+        883,
+        1058
+      ],
+      "pivot_world": [
+        371,
+        352
+      ],
+      "pivot_in_crop": [
+        155,
+        195
+      ],
+      "grip_px": [
+        883,
+        1058
+      ],
+      "grip_world": [
+        371,
+        352
+      ],
+      "grip_in_crop": [
+        155,
+        195
+      ]
+    }
+  }
+}

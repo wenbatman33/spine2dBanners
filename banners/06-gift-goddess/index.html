@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>女神生日限定 · Spine Banner</title>
+    <link rel="stylesheet" href="./vendor/spine-player-3.8.css" />
+    <style>
+      html, body { width:100%; min-height:100%; margin:0; background:#020812; }
+      body { display:grid; place-items:center; }
+      #player { width:min(100vw,1240px); aspect-ratio:620/272; overflow:hidden; background:#020812; }
+    </style>
+  </head>
+  <body>
+    <div id="player" aria-label="女神生日限定"></div>
+    <script src="./vendor/spine-player-3.8.js"></script>
+    <script>
+      new spine.SpinePlayer("player", {
+        jsonUrl:"./spine/4e5dc9f1d145/banner.json",
+        atlasUrl:"./spine/4e5dc9f1d145/banner.atlas",
+        animation:"animation",
+        loop:true,
+        alpha:true,
+        premultipliedAlpha:false,
+        showControls:true,
+        backgroundColor:"#020812",
+        viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
+      });
+    </script>
+  </body>
+</html>

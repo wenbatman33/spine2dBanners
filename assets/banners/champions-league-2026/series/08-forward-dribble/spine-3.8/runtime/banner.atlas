@@ -1,0 +1,166 @@
+banner.png?asset=d76fdf67e745
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: false
+  xy: 6, 6
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+speed_lines
+  rotate: false
+  xy: 6, 556
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+runner_0
+  rotate: false
+  xy: 1252, 556
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_1
+  rotate: false
+  xy: 1578, 556
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_2
+  rotate: false
+  xy: 6, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_3
+  rotate: false
+  xy: 332, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_4
+  rotate: false
+  xy: 658, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_5
+  rotate: false
+  xy: 984, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_6
+  rotate: false
+  xy: 1310, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+runner_7
+  rotate: false
+  xy: 1636, 1106
+  size: 320, 384
+  orig: 320, 384
+  offset: 0, 0
+  index: -1
+ball
+  rotate: false
+  xy: 6, 1496
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 392, 1496
+  size: 467, 308
+  orig: 467, 308
+  offset: 0, 0
+  index: -1
+title_glint_0
+  rotate: false
+  xy: 865, 1496
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_1
+  rotate: false
+  xy: 1104, 1496
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_2
+  rotate: false
+  xy: 1343, 1496
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 1582, 1496
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 6, 1882
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_5
+  rotate: false
+  xy: 245, 1882
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+title_glint_6
+  rotate: false
+  xy: 484, 1882
+  size: 233, 154
+  orig: 233, 154
+  offset: 0, 0
+  index: -1
+contact_flash
+  rotate: false
+  xy: 723, 1882
+  size: 184, 128
+  orig: 184, 128
+  offset: 0, 0
+  index: -1
+cta
+  rotate: false
+  xy: 913, 1882
+  size: 332, 96
+  orig: 332, 96
+  offset: 0, 0
+  index: -1
+badge
+  rotate: false
+  xy: 1251, 1882
+  size: 388, 76
+  orig: 388, 76
+  offset: 0, 0
+  index: -1
+ball_shadow
+  rotate: false
+  xy: 1645, 1882
+  size: 180, 48
+  orig: 180, 48
+  offset: 0, 0
+  index: -1

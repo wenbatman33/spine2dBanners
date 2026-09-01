@@ -1,0 +1,89 @@
+banner.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: false
+  xy: 4, 4
+  size: 620, 272
+  orig: 620, 272
+  offset: 0, 0
+  index: -1
+fx_primary
+  rotate: false
+  xy: 628, 4
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+fx_secondary
+  rotate: false
+  xy: 888, 4
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+fx_sparks
+  rotate: false
+  xy: 1148, 4
+  size: 620, 349
+  orig: 620, 349
+  offset: 0, 0
+  index: -1
+shine_00
+  rotate: false
+  xy: 1772, 4
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_01
+  rotate: false
+  xy: 4, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_02
+  rotate: false
+  xy: 260, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_03
+  rotate: false
+  xy: 516, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_04
+  rotate: false
+  xy: 772, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_05
+  rotate: false
+  xy: 1028, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_06
+  rotate: false
+  xy: 1284, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1
+shine_07
+  rotate: false
+  xy: 1540, 357
+  size: 252, 102
+  orig: 252, 102
+  offset: 0, 0
+  index: -1

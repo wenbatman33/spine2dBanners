@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>福运小虎 · Spine Player</title>
+    <link rel="stylesheet" href="../player/vendor/spine-player-3.8.css" />
+    <style>
+      :root { color-scheme: dark; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; background:#020b08; color:#f4fff8; }
+      * { box-sizing:border-box; }
+      body { margin:0; min-height:100vh; display:grid; place-items:center; background:radial-gradient(circle at 68% 18%,rgba(29,159,81,.34),transparent 38%),#020b08; }
+      main { width:min(1100px,100%); padding:28px; }
+      h1 { margin:0 0 8px; font-size:clamp(24px,4vw,42px); }
+      p { margin:0 0 20px; color:#9fd7b4; }
+      #player { width:100%; aspect-ratio:620/272; overflow:hidden; border:1px solid rgba(89,241,151,.36); border-radius:18px; background:#02100a; box-shadow:0 24px 80px rgba(0,0,0,.55); }
+      .note { margin-top:12px; font-size:13px; color:#71ad88; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>福运小虎 · 签到领豪礼</h1>
+      <p>放大半身虎体 Mesh、肩膀带动手掌持续挥手；钱袋弹跳、清晰金字和按钮脉冲。</p>
+      <div id="player"></div>
+      <div class="note">Spine 3.8.99 · 620×272 · 0.97 秒循环 · 169 点连续 Mesh</div>
+    </main>
+    <script src="../player/vendor/spine-player-3.8.js?retina=2"></script>
+    <script>
+      const freshAssets=Date.now();
+      new spine.SpinePlayer("player",{
+        jsonUrl:`../series/07-lucky-tiger/spine-3.8/runtime/banner.json?fresh=${freshAssets}`,
+        atlasUrl:`../series/07-lucky-tiger/spine-3.8/runtime/banner.atlas?fresh=${freshAssets}`,
+        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:true,backgroundColor:"#02100a",
+        viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
+      });
+    </script>
+  </body>
+</html>

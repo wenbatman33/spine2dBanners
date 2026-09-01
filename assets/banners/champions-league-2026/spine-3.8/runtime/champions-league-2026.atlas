@@ -1,0 +1,110 @@
+champions-league-2026.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: false
+  xy: 10, 10
+  size: 1240, 544
+  orig: 1240, 544
+  offset: 0, 0
+  index: -1
+player_left
+  rotate: false
+  xy: 1260, 10
+  size: 224, 350
+  orig: 224, 350
+  offset: 0, 0
+  index: -1
+player_right
+  rotate: false
+  xy: 1494, 10
+  size: 208, 360
+  orig: 208, 360
+  offset: 0, 0
+  index: -1
+player_central
+  rotate: false
+  xy: 10, 564
+  size: 328, 500
+  orig: 328, 500
+  offset: 0, 0
+  index: -1
+trophy
+  rotate: false
+  xy: 348, 564
+  size: 132, 240
+  orig: 132, 240
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 490, 564
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+subtitle
+  rotate: false
+  xy: 1068, 564
+  size: 477, 79
+  orig: 477, 79
+  offset: 0, 0
+  index: -1
+date
+  rotate: false
+  xy: 1555, 564
+  size: 425, 91
+  orig: 425, 91
+  offset: 0, 0
+  index: -1
+cta
+  rotate: false
+  xy: 10, 1074
+  size: 508, 110
+  orig: 508, 110
+  offset: 0, 0
+  index: -1
+title_glint_0
+  rotate: false
+  xy: 528, 1074
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+title_glint_1
+  rotate: false
+  xy: 1106, 1074
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+title_glint_2
+  rotate: false
+  xy: 10, 1216
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 588, 1216
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 1166, 1216
+  size: 568, 132
+  orig: 568, 132
+  offset: 0, 0
+  index: -1
+fx_flare_clean
+  rotate: false
+  xy: 1744, 1216
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
