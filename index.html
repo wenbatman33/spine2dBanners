@@ -30,6 +30,7 @@
   <body>
     <main>
       <section class="grid">
+        <article class="card"><div class="player" id="p12" style="background:url('./natural-motion-demo/background.png') center/cover no-repeat"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格连续庆祝动作 · 火焰金光 · <a href="./natural-motion-demo/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p11"></div><div class="caption"><h2>11 · 心动奖金眨眼挑战</h2><span class="meta">单一人物底图 · 双眼眨眼 / 单眼媚眼 · <a href="./banners/11-beauty-wink/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p10"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">单一人物 Mesh · 呼吸 / 重心 / 转头 · <a href="./banners/10-operative-idle/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p09"></div><div class="caption"><h2>09 · 开箱暴击</h2><span class="meta">六段连续开箱 · 交叉过渡 · <a href="./banners/09-treasure-chest/index.html">开启独立版</a></span></div></article>
@@ -46,18 +47,20 @@
     <script src="./banners/shared/spine-player-3.8.js"></script>
     <script>
       const banners = [
-        ["p11","11-beauty-wink"],["p10","10-operative-idle"],["p09","09-treasure-chest"],["p08","08-forward-dribble"],["p07","07-lucky-tiger"],["p06","06-gift-goddess"],["p01","01-champions-night"],
-        ["p02","02-star-summit"],["p03","03-rivalry"],["p04","04-champion-road"],["p05","05-striker-storm"]
+        ["p12","./natural-motion-demo",true],
+        ["p11","./banners/11-beauty-wink"],["p10","./banners/10-operative-idle"],["p09","./banners/09-treasure-chest"],["p08","./banners/08-forward-dribble"],["p07","./banners/07-lucky-tiger"],["p06","./banners/06-gift-goddess"],["p01","./banners/01-champions-night"],
+        ["p02","./banners/02-star-summit"],["p03","./banners/03-rivalry"],["p04","./banners/04-champion-road"],["p05","./banners/05-striker-storm"]
       ];
-      for (const [id,slug] of banners) new spine.SpinePlayer(id,{
-        jsonUrl:`./banners/${slug}/banner.json`,
-        atlasUrl:`./banners/${slug}/banner.atlas`,
-        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:false,backgroundColor:"#020812",
+      const assetVersion = "20260902-lion-demo";
+      for (const [id,base,transparent=false] of banners) new spine.SpinePlayer(id,{
+        jsonUrl:`${base}/banner.json?v=${assetVersion}`,
+        atlasUrl:`${base}/banner.atlas?v=${assetVersion}`,
+        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:false,backgroundColor:transparent ? "#00000000" : "#020812",
         viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
       });
 
       for (const card of document.querySelectorAll(".card")) {
-        const link = card.querySelector('a[href^="./banners/"]');
+        const link = card.querySelector('a[href$="/index.html"]');
         if (!link) continue;
         const title = card.querySelector("h2").textContent.trim();
         const src = link.getAttribute("href");

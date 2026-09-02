@@ -1,0 +1,132 @@
+
+line.png
+size: 685,522
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BG
+  rotate: false
+  xy: 244, 2
+  size: 310, 110
+  orig: 310, 110
+  offset: 0, 0
+  index: -1
+FX_glow
+  rotate: false
+  xy: 222, 21
+  size: 17, 21
+  orig: 17, 21
+  offset: 0, 0
+  index: -1
+L_eyelid_D
+  rotate: true
+  xy: 222, 44
+  size: 43, 17
+  orig: 43, 17
+  offset: 0, 0
+  index: -1
+L_eyelid_U
+  rotate: true
+  xy: 600, 185
+  size: 49, 31
+  orig: 49, 31
+  offset: 0, 0
+  index: -1
+R_eyelid_D
+  rotate: true
+  xy: 610, 154
+  size: 29, 27
+  orig: 29, 28
+  offset: 0, 0
+  index: -1
+R_eyelid_U
+  rotate: true
+  xy: 575, 123
+  size: 38, 33
+  orig: 38, 33
+  offset: 0, 0
+  index: -1
+button
+  rotate: false
+  xy: 2, 13
+  size: 218, 74
+  orig: 220, 76
+  offset: 1, 1
+  index: -1
+coin_01
+  rotate: true
+  xy: 484, 116
+  size: 45, 53
+  orig: 45, 53
+  offset: 0, 0
+  index: -1
+coin_02
+  rotate: false
+  xy: 214, 89
+  size: 28, 23
+  orig: 28, 23
+  offset: 0, 0
+  index: -1
+coin_03
+  rotate: false
+  xy: 556, 2
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+coin_04
+  rotate: true
+  xy: 539, 122
+  size: 39, 34
+  orig: 39, 34
+  offset: 0, 0
+  index: -1
+coinbag
+  rotate: true
+  xy: 484, 301
+  size: 219, 199
+  orig: 219, 199
+  offset: 0, 0
+  index: -1
+dragon
+  rotate: false
+  xy: 152, 114
+  size: 330, 406
+  orig: 330, 406
+  offset: 0, 0
+  index: -1
+dragon_hand
+  rotate: false
+  xy: 484, 163
+  size: 114, 136
+  orig: 115, 136
+  offset: 0, 0
+  index: -1
+hand
+  rotate: true
+  xy: 600, 236
+  size: 63, 60
+  orig: 63, 62
+  offset: 0, 0
+  index: -1
+line_01
+  rotate: false
+  xy: 556, 26
+  size: 92, 94
+  orig: 94, 98
+  offset: 2, 1
+  index: -1
+shadow
+  rotate: false
+  xy: 152, 89
+  size: 60, 23
+  orig: 60, 23
+  offset: 0, 0
+  index: -1
+word
+  rotate: true
+  xy: 2, 89
+  size: 431, 148
+  orig: 433, 152
+  offset: 1, 2
+  index: -1

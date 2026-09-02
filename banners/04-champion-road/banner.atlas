@@ -1,89 +1,194 @@
-banner.png
-size: 2048,512
+banner.png?v=20260902-typography
+size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-base
+character
   rotate: false
   xy: 4, 4
-  size: 620, 272
-  orig: 620, 272
+  size: 395, 564
+  orig: 395, 564
   offset: 0, 0
   index: -1
-fx_primary
+rays
   rotate: false
-  xy: 628, 4
+  xy: 403, 4
+  size: 520, 520
+  orig: 520, 520
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 927, 4
+  size: 930, 408
+  orig: 930, 408
+  offset: 0, 0
+  index: -1
+ring
+  rotate: false
+  xy: 4, 572
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+flash
+  rotate: false
+  xy: 308, 572
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-fx_secondary
+title
   rotate: false
-  xy: 888, 4
-  size: 256, 256
-  orig: 256, 256
+  xy: 568, 572
+  size: 680, 214
+  orig: 680, 214
   offset: 0, 0
   index: -1
-fx_sparks
+flare
   rotate: false
-  xy: 1148, 4
-  size: 620, 349
-  orig: 620, 349
+  xy: 1252, 572
+  size: 208, 208
+  orig: 208, 208
   offset: 0, 0
   index: -1
-shine_00
+flare_cool
   rotate: false
-  xy: 1772, 4
-  size: 252, 102
-  orig: 252, 102
+  xy: 1464, 572
+  size: 208, 208
+  orig: 208, 208
   offset: 0, 0
   index: -1
-shine_01
+cta
   rotate: false
-  xy: 4, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 4, 876
+  size: 546, 150
+  orig: 546, 150
   offset: 0, 0
   index: -1
-shine_02
+cta_ring
   rotate: false
-  xy: 260, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 554, 876
+  size: 392, 128
+  orig: 392, 128
   offset: 0, 0
   index: -1
-shine_03
+subtitle
   rotate: false
-  xy: 516, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 950, 876
+  size: 714, 120
+  orig: 714, 120
   offset: 0, 0
   index: -1
-shine_04
+popup_0
   rotate: false
-  xy: 772, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 4, 1030
+  size: 439, 118
+  orig: 439, 118
   offset: 0, 0
   index: -1
-shine_05
+title_glint_0
   rotate: false
-  xy: 1028, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 447, 1030
+  size: 340, 107
+  orig: 340, 107
   offset: 0, 0
   index: -1
-shine_06
+title_glint_1
   rotate: false
-  xy: 1284, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 791, 1030
+  size: 340, 107
+  orig: 340, 107
   offset: 0, 0
   index: -1
-shine_07
+title_glint_2
   rotate: false
-  xy: 1540, 357
-  size: 252, 102
-  orig: 252, 102
+  xy: 1135, 1030
+  size: 340, 107
+  orig: 340, 107
+  offset: 0, 0
+  index: -1
+title_glint_3
+  rotate: false
+  xy: 1479, 1030
+  size: 340, 107
+  orig: 340, 107
+  offset: 0, 0
+  index: -1
+title_glint_4
+  rotate: false
+  xy: 4, 1152
+  size: 340, 107
+  orig: 340, 107
+  offset: 0, 0
+  index: -1
+popup_1
+  rotate: false
+  xy: 348, 1152
+  size: 252, 104
+  orig: 252, 104
+  offset: 0, 0
+  index: -1
+sparkle
+  rotate: false
+  xy: 604, 1152
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+kicker
+  rotate: false
+  xy: 680, 1152
+  size: 342, 70
+  orig: 342, 70
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 1026, 1152
+  size: 260, 70
+  orig: 260, 70
+  offset: 0, 0
+  index: -1
+dust
+  rotate: false
+  xy: 1290, 1152
+  size: 120, 60
+  orig: 120, 60
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 1414, 1152
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+confetti_0
+  rotate: false
+  xy: 1478, 1152
+  size: 40, 24
+  orig: 40, 24
+  offset: 0, 0
+  index: -1
+confetti_1
+  rotate: false
+  xy: 1522, 1152
+  size: 40, 24
+  orig: 40, 24
+  offset: 0, 0
+  index: -1
+confetti_2
+  rotate: false
+  xy: 1566, 1152
+  size: 40, 24
+  orig: 40, 24
+  offset: 0, 0
+  index: -1
+confetti_3
+  rotate: false
+  xy: 1610, 1152
+  size: 40, 24
+  orig: 40, 24
   offset: 0, 0
   index: -1
