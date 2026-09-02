@@ -1,9 +1,0 @@
-{
-  "atlas": "2048x2048",
-  "atlas_bytes": 647741,
-  "duration": 2.65,
-  "key_poses": 6,
-  "pose_transition": "crossfade",
-  "opening_sequence": true,
-  "portable": true
-}

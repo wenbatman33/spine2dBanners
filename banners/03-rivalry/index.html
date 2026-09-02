@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>豪门生死战 · Spine Banner</title>
-    <link rel="stylesheet" href="./vendor/spine-player-3.8.css" />
+    <link rel="stylesheet" href="../shared/spine-player-3.8.css" />
     <style>
       html, body { width:100%; min-height:100%; margin:0; background:#020812; }
       body { display:grid; place-items:center; }
@@ -13,11 +13,11 @@
   </head>
   <body>
     <div id="player" aria-label="豪门生死战"></div>
-    <script src="./vendor/spine-player-3.8.js"></script>
+    <script src="../shared/spine-player-3.8.js"></script>
     <script>
       new spine.SpinePlayer("player", {
-        jsonUrl:"./spine/5dfb55ca79f0/banner.json",
-        atlasUrl:"./spine/5dfb55ca79f0/banner.atlas",
+        jsonUrl:"./banner.json",
+        atlasUrl:"./banner.atlas",
         animation:"animation",
         loop:true,
         alpha:true,

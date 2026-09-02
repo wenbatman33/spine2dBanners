@@ -1,42 +1,36 @@
-# Spine 2D 素材專案
+# Spine Banner 成品
 
-最上層就是可直接使用的成品；开发来源放在后面，不影响抽取使用。
+這個資料夾只保留可直接使用的正式檔案，沒有生成工具、測試角色、QA 截圖或舊版壓縮包。
 
 ```text
 spine2dAssets/
-├── index.html       十一款 Banner 实际展示页
-├── banners/         每款都可整包复制的独立静态 HTML
-├── vendor/          总览页共用的 Spine Player
-├── assets/          可編輯來源
-├── deliverables/    可直接交付的壓縮包
-├── tools/           重新建置素材的腳本
-└── README.md        本導覽
+├── index.html
+├── README.md
+└── banners/
+    ├── shared/
+    │   ├── spine-player-3.8.css
+    │   └── spine-player-3.8.js
+    ├── 01-champions-night/
+    ├── 02-star-summit/
+    ├── ...
+    └── 11-beauty-wink/
 ```
 
-## 最常使用的入口
+每款 Banner 資料夾固定只有五個檔案：
 
-- Banner 十一款全覽：`index.html`
-- 单款 Banner：复制 `banners/对应名称/` 整个资料夹，其中 `index.html` 可直接播放
-- 勇者 Spine 4.3 專案：`assets/characters/blue_guard_hero/project/blue-guard-hero.spine`
-- 勇者遊戲引擎輸出：`assets/characters/blue_guard_hero/runtime/`
-- 最終交付 ZIP：`deliverables/`
+```text
+index.html
+banner.json
+banner.atlas
+banner.png
+embed-code.txt
+```
 
-本機伺服器運行在專案根目錄時：
+## 使用方式
 
-- <http://127.0.0.1:4188/>
-- <http://127.0.0.1:4188/banners/08-forward-dribble/>
-- <http://127.0.0.1:4188/banners/09-treasure-chest/>
-- <http://127.0.0.1:4188/banners/10-operative-idle/>
-- <http://127.0.0.1:4188/banners/11-beauty-wink/>
+- 全部 Banner：開啟根目錄的 `index.html`
+- 單款 Banner：開啟 `banners/款式名稱/index.html`
+- 嵌入其他網頁：複製該款資料夾內 `embed-code.txt` 的內容
+- 搬移專案：複製整個 `spine2dAssets` 資料夾即可
 
-## 目前正式版本
-
-| 素材 | 正式版本 | 位置 |
-| --- | --- | --- |
-| 十一款廣告 Banner | Spine 3.8.99 | `banners/` |
-| 女神送禮 Banner | 單一連續人物 Mesh、2× 貼圖 | `series/06-gift-goddess/` |
-| 藍衣盾劍勇者 | Spine 4.3 V4 | `assets/characters/blue_guard_hero/` |
-| 盾劍動作模板 | Essential v1 | `assets/animation_templates/` |
-
-舊版 V1～V3、過期交付包與測試截圖已移到 macOS 垃圾桶的
-`spine2dAssets-cleanup-20260831`，需要時仍可復原。
+本機預覽：<http://127.0.0.1:4188/>

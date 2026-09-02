@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Spine Banner · 可携式成品</title>
-    <link rel="stylesheet" href="./vendor/spine-player-3.8.css" />
+    <link rel="stylesheet" href="./banners/shared/spine-player-3.8.css" />
     <style>
       :root { color-scheme:dark; font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; background:#030712; color:#f4f8ff; }
       * { box-sizing:border-box; }
@@ -43,16 +43,15 @@
         <article class="card"><div class="player" id="p05"></div><div class="caption"><h2>05 · 锋线风暴</h2><span class="meta">进球爆光 · <a href="./banners/05-striker-storm/index.html">开启独立版</a></span></div></article>
       </section>
     </main>
-    <script src="./vendor/spine-player-3.8.js"></script>
+    <script src="./banners/shared/spine-player-3.8.js"></script>
     <script>
-      const assetVersions = {"01-champions-night":"be03c2f3b350","02-star-summit":"3bf450edd27d","03-rivalry":"5dfb55ca79f0","04-champion-road":"676aa4b52abd","05-striker-storm":"f9842cc3deee","06-gift-goddess":"deccaf255b75","07-lucky-tiger":"126bbb96a7e6","08-forward-dribble":"521423a1276f","09-treasure-chest":"e23deccd4829","10-operative-idle":"363f5fec84f7","11-beauty-wink":"b2dc0ad0da97"};
       const banners = [
         ["p11","11-beauty-wink"],["p10","10-operative-idle"],["p09","09-treasure-chest"],["p08","08-forward-dribble"],["p07","07-lucky-tiger"],["p06","06-gift-goddess"],["p01","01-champions-night"],
         ["p02","02-star-summit"],["p03","03-rivalry"],["p04","04-champion-road"],["p05","05-striker-storm"]
       ];
       for (const [id,slug] of banners) new spine.SpinePlayer(id,{
-        jsonUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.json`,
-        atlasUrl:`./banners/${slug}/spine/${assetVersions[slug]}/banner.atlas`,
+        jsonUrl:`./banners/${slug}/banner.json`,
+        atlasUrl:`./banners/${slug}/banner.atlas`,
         animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:false,backgroundColor:"#020812",
         viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
       });
