@@ -30,6 +30,7 @@
   <body>
     <main>
       <section class="grid">
+        <article class="card"><div class="player" id="p13" style="background:url('./banners/13-airborne-strike/background.png') center/cover no-repeat"></div><div class="caption"><h2>13 · 凌空爆射</h2><span class="meta">寬幅標題掃光 · 球面旋轉、動態模糊與淡煙 · <a href="./banners/13-airborne-strike/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p12" style="background:url('./natural-motion-demo/background.png') center/cover no-repeat"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格连续庆祝动作 · 火焰金光 · <a href="./natural-motion-demo/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p11"></div><div class="caption"><h2>11 · 心动奖金眨眼挑战</h2><span class="meta">单一人物底图 · 双眼眨眼 / 单眼媚眼 · <a href="./banners/11-beauty-wink/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p10"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">单一人物 Mesh · 呼吸 / 重心 / 转头 · <a href="./banners/10-operative-idle/index.html">开启独立版</a></span></div></article>
@@ -47,11 +48,12 @@
     <script src="./banners/shared/spine-player-3.8.js"></script>
     <script>
       const banners = [
+        ["p13","./banners/13-airborne-strike",true],
         ["p12","./natural-motion-demo",true],
         ["p11","./banners/11-beauty-wink"],["p10","./banners/10-operative-idle"],["p09","./banners/09-treasure-chest"],["p08","./banners/08-forward-dribble"],["p07","./banners/07-lucky-tiger"],["p06","./banners/06-gift-goddess"],["p01","./banners/01-champions-night"],
         ["p02","./banners/02-star-summit"],["p03","./banners/03-rivalry"],["p04","./banners/04-champion-road"],["p05","./banners/05-striker-storm"]
       ];
-      const assetVersion = "20260902-lion-demo";
+      const assetVersion = "20260903-wide-shine-ball-blur";
       for (const [id,base,transparent=false] of banners) new spine.SpinePlayer(id,{
         jsonUrl:`${base}/banner.json?v=${assetVersion}`,
         atlasUrl:`${base}/banner.atlas?v=${assetVersion}`,

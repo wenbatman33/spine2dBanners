@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>凌空爆射 · Spine Banner</title>
+    <link rel="stylesheet" href="../shared/spine-player-3.8.css" />
+    <style>
+      *{box-sizing:border-box}
+      html,body{margin:0;width:100%;min-height:100%;background:#020812}
+      body{display:grid;place-items:center}
+      .banner{position:relative;width:min(100vw,1240px);aspect-ratio:620/272;overflow:hidden;background:#041735}
+      .background,.player{position:absolute;inset:0;width:100%;height:100%}
+      .background{display:block;object-fit:cover}
+      .player{pointer-events:none}
+      .spine-player-controls{display:none!important}
+    </style>
+  </head>
+  <body>
+    <main class="banner" aria-label="凌空爆射一球制勝動畫 Banner">
+      <img class="background" src="./background.png" alt="凌空爆射，一球制勝" />
+      <div class="player" id="player" aria-hidden="true"></div>
+    </main>
+    <script src="../shared/spine-player-3.8.js"></script>
+    <script>
+      new spine.SpinePlayer("player",{
+        jsonUrl:"./banner.json?v=20260903-13",atlasUrl:"./banner.atlas?v=20260903-13",animation:"animation",
+        loop:true,alpha:true,premultipliedAlpha:false,showControls:false,
+        backgroundColor:"#00000000",fullScreenBackgroundColor:"#00000000",
+        viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
+      });
+    </script>
+  </body>
+</html>

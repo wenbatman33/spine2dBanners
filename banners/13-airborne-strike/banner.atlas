@@ -1,0 +1,100 @@
+player-kick-static.png
+size: 1246,1263
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+player/kick-static
+  rotate: false
+  xy: 0, 0
+  size: 1246, 1263
+  orig: 1246, 1263
+  offset: 0, 0
+  index: -1
+
+ball-spin-sheet.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ball/ball_000
+  rotate: false
+  xy: 0, 0
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_001
+  rotate: false
+  xy: 512, 0
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_002
+  rotate: false
+  xy: 1024, 0
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_003
+  rotate: false
+  xy: 1536, 0
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_004
+  rotate: false
+  xy: 0, 512
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_005
+  rotate: false
+  xy: 512, 512
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_006
+  rotate: false
+  xy: 1024, 512
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+ball/ball_007
+  rotate: false
+  xy: 1536, 512
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+ball-smoke.png
+size: 1672,941
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effects/ball-smoke
+  rotate: false
+  xy: 0, 0
+  size: 1672, 941
+  orig: 1672, 941
+  offset: 0, 0
+  index: -1
+
+title-shine.png
+size: 1254,1254
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effects/title-shine
+  rotate: false
+  xy: 0, 0
+  size: 1254, 1254
+  orig: 1254, 1254
+  offset: 0, 0
+  index: -1
