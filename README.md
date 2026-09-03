@@ -13,10 +13,11 @@ spine2dAssets/
     ├── 01-champions-night/
     ├── 02-star-summit/
     ├── ...
-    └── 11-beauty-wink/
+    ├── 14-temujin/
+    └── 15-cowboy-hat-tip/
 ```
 
-每款 Banner 資料夾固定只有五個檔案：
+01–11 款主要使用以下檔案，並共用 `banners/shared` 播放器：
 
 ```text
 index.html
@@ -25,6 +26,8 @@ banner.atlas
 banner.png
 embed-code.txt
 ```
+
+14、15 款則把播放器、動畫資料、圖檔和 `index.html` 都放在各自的單一資料夾中，可單獨搬移，不需要複製 `shared`。15 款為「狂野印第安對決」，有槍口頂帽、停留再放回的循環動作；嵌入語法在該款的 `embed-code.txt`。
 
 ## 使用方式
 

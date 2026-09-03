@@ -30,6 +30,7 @@
   <body>
     <main>
       <section class="grid">
+        <article class="card"><iframe class="player" src="./banners/15-cowboy-hat-tip/index.html" title="狂野印第安對決 · 槍口頂帽動畫 Banner" style="display:block;border:0" loading="lazy" allow="autoplay"></iframe><div class="caption"><h2>15 · 狂野印第安對決</h2><span class="meta">槍口頂帽 · 抬起、停留、復位循環 · <a href="./banners/15-cowboy-hat-tip/index.html">開啟獨立版</a></span></div></article>
         <article class="card"><iframe class="player" src="./banners/14-temujin/index.html" title="鐵木真橫式動畫 Banner" style="display:block;border:0" loading="lazy" allow="autoplay"></iframe><div class="caption"><h2>14 · 鐵木真</h2><span class="meta">武將抬臂 · Q 版揮刀 · 飄移戰火與煙霧 · <a href="./banners/14-temujin/index.html">開啟獨立版</a></span></div></article>
         <article class="card"><div class="player" id="p13" style="background:url('./banners/13-airborne-strike/background.png') center/cover no-repeat"></div><div class="caption"><h2>13 · 凌空爆射</h2><span class="meta">寬幅標題掃光 · 球面旋轉、動態模糊與淡煙 · <a href="./banners/13-airborne-strike/index.html">开启独立版</a></span></div></article>
         <article class="card"><div class="player" id="p12" style="background:url('./natural-motion-demo/background.png') center/cover no-repeat"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格连续庆祝动作 · 火焰金光 · <a href="./natural-motion-demo/index.html">开启独立版</a></span></div></article>
@@ -67,7 +68,7 @@
         if (!link) continue;
         const title = card.querySelector("h2").textContent.trim();
         const src = link.getAttribute("href");
-        const snippet = `<iframe src="${src}" title="${title}" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>`;
+        const snippet = `<iframe src="${src}" title="${title}" width="620" height="272" style="border:0;display:block;width:100%;max-width:620px;aspect-ratio:620/272;height:auto" loading="lazy" allow="autoplay"></iframe>`;
         const embed = document.createElement("div");
         embed.className = "embed";
         const heading = document.createElement("div");
