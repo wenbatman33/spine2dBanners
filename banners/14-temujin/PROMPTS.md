@@ -1,9 +1,10 @@
 # 鐵木真 · 橫式遊戲 Banner
 
-620 × 272，所有必需檔案都在這個資料夾。直接開啟 `index.html`，或把整個 `14-temujin` 資料夾複製到其他網站。不依賴上層目錄、CDN 或建置工具。
+620 × 272。直接開啟 `index.html`；搬移時保留本資料夾與 `banners/shared`，不依賴 CDN 或建置工具。
 
 ```html
-<iframe src="./14-temujin/index.html" title="鐵木真" width="620" height="272" style="border:0;display:block;width:100%;max-width:620px;aspect-ratio:620/272;height:auto" loading="lazy" allow="autoplay"></iframe>
+<div data-spine-player data-spine-base="./banners/14-temujin/banner" aria-label="鐵木真" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<script src="./banners/shared/common-spine-player.js"></script>
 ```
 
 動態：標題固定；大型武將上胸呼吸、頭部微動和抬臂；Q 版角色上身呼吸、點頭和持刀手臂擺動，脚底固定，沒有整體忽大忽小。15 格火焰序列分為三個區域向右上飄移，雙層暖色煙霧緩慢流動，32 顆火星隨風上飄。循環 4.2 秒，金字及刀刃另有閃光，播放器控制隱藏。系統啟用減少動態效果時，顯示靜止構圖。這是視覺展示，尚未指定「立即出征」的遊戲連結。
@@ -17,9 +18,10 @@
 - `light.png`：沿用現有足球 Banner 的金色光效貼圖。
 - `fire.png`：沿用既有 Banner 的 15 格火焰圖集。
 - `smoke.png`：沿用現有煙霧貼圖，以播放時的色彩和透明度調整成暖色戰場煙霧。
-- `banner-data.js`：Spine 3.8 動畫、圖集資訊及輪廓網格。
-- `spine-player.js`：本地播放器。
-- `index.html`：可移植的單獨頁面。
+- `banner.json`：Spine 3.8 動畫與輪廓網格。
+- `banner.atlas`：圖集資訊。
+- `../shared/`：全站共用播放器與生命週期管理器。
+- `index.html`：可直接開啟的單獨頁面。
 
 生成工具的透明背景請求輸出仍含棋盤格，因此以 Spine 輪廓網格僅顯示素材本體；原始 PNG 不宣稱具備透明 alpha。播放器畫布外部透明，頁面預設深色背景；嵌入其他底色時可使用 `index.html?transparent`。
 

@@ -1,10 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spine Banner · 可携式成品</title>
-    <link rel="stylesheet" href="./banners/shared/spine-player-3.8.css" />
+    <title>Spine Banner · 可攜式成品</title>
     <style>
       :root { color-scheme:dark; font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; background:#030712; color:#f4f8ff; }
       * { box-sizing:border-box; }
@@ -12,7 +11,15 @@
       main { width:min(100%,1380px); margin:auto; padding:36px 26px 64px; }
       .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
       .card { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; box-shadow:0 18px 50px rgba(0,0,0,.4); }
-      .player { width:100%; aspect-ratio:620/272; background:#020812; border-bottom:1px solid #1b3553; }
+      .player { position:relative; width:100%; aspect-ratio:620/272; overflow:hidden; background:#020812 center/cover no-repeat; border-bottom:1px solid #1b3553; }
+      .player > .spine-player { width:100%; height:100%; }
+      .player > .spine-player > canvas { display:block; width:100%; height:100%; }
+      .player .spine-player-controls { display:none!important; }
+      .player::after { position:absolute; right:12px; bottom:10px; padding:4px 7px; border-radius:6px; background:rgba(2,8,18,.72); color:#b9d0ed; font:10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; pointer-events:none; }
+      .player[data-spine-state="loading"]::after { content:"Spine 載入中"; }
+      .player[data-spine-state="parked"]::after { content:"滾動至此播放"; }
+      .player[data-spine-state="error"]::after { content:"保留預覽圖"; color:#ffd2d2; }
+      .player[data-spine-state="error"] .spine-player-error { display:none!important; }
       .caption { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 16px 16px; }
       h2 { margin:0; font-size:17px; }
       a { color:#7ce9e3; text-decoration:none; white-space:nowrap; }
@@ -30,55 +37,42 @@
   <body>
     <main>
       <section class="grid">
-        <article class="card"><iframe class="player" src="./banners/15-cowboy-hat-tip/index.html" title="狂野印第安對決 · 槍口頂帽動畫 Banner" style="display:block;border:0" loading="lazy" allow="autoplay"></iframe><div class="caption"><h2>15 · 狂野印第安對決</h2><span class="meta">槍口頂帽 · 抬起、停留、復位循環 · <a href="./banners/15-cowboy-hat-tip/index.html">開啟獨立版</a></span></div></article>
-        <article class="card"><iframe class="player" src="./banners/14-temujin/index.html" title="鐵木真橫式動畫 Banner" style="display:block;border:0" loading="lazy" allow="autoplay"></iframe><div class="caption"><h2>14 · 鐵木真</h2><span class="meta">武將抬臂 · Q 版揮刀 · 飄移戰火與煙霧 · <a href="./banners/14-temujin/index.html">開啟獨立版</a></span></div></article>
-        <article class="card"><div class="player" id="p13" style="background:url('./banners/13-airborne-strike/background.png') center/cover no-repeat"></div><div class="caption"><h2>13 · 凌空爆射</h2><span class="meta">寬幅標題掃光 · 球面旋轉、動態模糊與淡煙 · <a href="./banners/13-airborne-strike/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p12" style="background:url('./natural-motion-demo/background.png') center/cover no-repeat"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格连续庆祝动作 · 火焰金光 · <a href="./natural-motion-demo/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p11"></div><div class="caption"><h2>11 · 心动奖金眨眼挑战</h2><span class="meta">单一人物底图 · 双眼眨眼 / 单眼媚眼 · <a href="./banners/11-beauty-wink/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p10"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">单一人物 Mesh · 呼吸 / 重心 / 转头 · <a href="./banners/10-operative-idle/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p09"></div><div class="caption"><h2>09 · 开箱暴击</h2><span class="meta">六段连续开箱 · 交叉过渡 · <a href="./banners/09-treasure-chest/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p08"></div><div class="caption"><h2>08 · 一路带球向前冲</h2><span class="meta">8 格完整人体跑步序列 · <a href="./banners/08-forward-dribble/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p07"></div><div class="caption"><h2>07 · 福运小虎</h2><span class="meta">半身挥手 · <a href="./banners/07-lucky-tiger/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p06"></div><div class="caption"><h2>06 · 女神生日限定</h2><span class="meta">礼盒旋转 · <a href="./banners/06-gift-goddess/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p01"></div><div class="caption"><h2>01 · 欧冠巅峰之夜</h2><span class="meta">奖杯爆光 · <a href="./banners/01-champions-night/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p02"></div><div class="caption"><h2>02 · 群星巅峰夜</h2><span class="meta">慢推镜 · <a href="./banners/02-star-summit/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p03"></div><div class="caption"><h2>03 · 豪门生死战</h2><span class="meta">震屏冲击 · <a href="./banners/03-rivalry/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p04"></div><div class="caption"><h2>04 · 冠军之路</h2><span class="meta">镜头漂移 · <a href="./banners/04-champion-road/index.html">开启独立版</a></span></div></article>
-        <article class="card"><div class="player" id="p05"></div><div class="caption"><h2>05 · 锋线风暴</h2><span class="meta">进球爆光 · <a href="./banners/05-striker-storm/index.html">开启独立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/15-cowboy-hat-tip/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/15-cowboy-hat-tip/artwork.png')" role="img" aria-label="狂野印第安對決 · 槍口頂帽動畫 Banner"></div><div class="caption"><h2>15 · 狂野印第安對決</h2><span class="meta">槍口頂帽 · 抬起、停留、復位循環 · <a href="./banners/15-cowboy-hat-tip/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/14-temujin/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/14-temujin/artwork.png')" role="img" aria-label="鐵木真橫式動畫 Banner"></div><div class="caption"><h2>14 · 鐵木真</h2><span class="meta">武將抬臂 · Q 版揮刀 · 飄移戰火與煙霧 · <a href="./banners/14-temujin/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/13-airborne-strike/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/13-airborne-strike/background.png')"></div><div class="caption"><h2>13 · 凌空爆射</h2><span class="meta">寬幅標題掃光 · 球面旋轉、動態模糊與淡煙 · <a href="./banners/13-airborne-strike/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./natural-motion-demo/banner" data-spine-version="20260907-common-player" style="background-image:url('./natural-motion-demo/background.png')"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格連續慶祝動作 · 火焰金光 · <a href="./natural-motion-demo/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/11-beauty-wink/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/11-beauty-wink/banner.png')"></div><div class="caption"><h2>11 · 心動獎金眨眼挑戰</h2><span class="meta">單一人物底圖 · 雙眼眨眼 / 單眼媚眼 · <a href="./banners/11-beauty-wink/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/10-operative-idle/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/10-operative-idle/banner.png')"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">單一人物 Mesh · 呼吸 / 重心 / 轉頭 · <a href="./banners/10-operative-idle/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/09-treasure-chest/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/09-treasure-chest/banner.png')"></div><div class="caption"><h2>09 · 開箱暴擊</h2><span class="meta">六段連續開箱 · 交叉過渡 · <a href="./banners/09-treasure-chest/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/08-forward-dribble/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/08-forward-dribble/banner.png')"></div><div class="caption"><h2>08 · 一路帶球向前衝</h2><span class="meta">8 格完整人體跑步序列 · <a href="./banners/08-forward-dribble/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/07-lucky-tiger/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/07-lucky-tiger/banner.png')"></div><div class="caption"><h2>07 · 福運小虎</h2><span class="meta">半身揮手 · <a href="./banners/07-lucky-tiger/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/06-gift-goddess/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/06-gift-goddess/banner.png')"></div><div class="caption"><h2>06 · 女神生日限定</h2><span class="meta">禮盒旋轉 · <a href="./banners/06-gift-goddess/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/01-champions-night/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/01-champions-night/banner.png')"></div><div class="caption"><h2>01 · 歐冠巔峰之夜</h2><span class="meta">獎杯爆光 · <a href="./banners/01-champions-night/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/02-star-summit/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/02-star-summit/banner.png')"></div><div class="caption"><h2>02 · 群星巔峰夜</h2><span class="meta">慢推鏡 · <a href="./banners/02-star-summit/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/03-rivalry/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/03-rivalry/banner.png')"></div><div class="caption"><h2>03 · 豪門生死戰</h2><span class="meta">震屏衝擊 · <a href="./banners/03-rivalry/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/04-champion-road/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/04-champion-road/banner.png')"></div><div class="caption"><h2>04 · 冠軍之路</h2><span class="meta">鏡頭漂移 · <a href="./banners/04-champion-road/index.html">開啟獨立版</a></span></div></article>
+        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/05-striker-storm/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/05-striker-storm/banner.png')"></div><div class="caption"><h2>05 · 鋒線風暴</h2><span class="meta">進球爆光 · <a href="./banners/05-striker-storm/index.html">開啟獨立版</a></span></div></article>
       </section>
     </main>
-    <script src="./banners/shared/spine-player-3.8.js"></script>
+    <script src="./banners/shared/common-spine-player.js"></script>
     <script>
-      const banners = [
-        ["p13","./banners/13-airborne-strike",true],
-        ["p12","./natural-motion-demo",true],
-        ["p11","./banners/11-beauty-wink"],["p10","./banners/10-operative-idle"],["p09","./banners/09-treasure-chest"],["p08","./banners/08-forward-dribble"],["p07","./banners/07-lucky-tiger"],["p06","./banners/06-gift-goddess"],["p01","./banners/01-champions-night"],
-        ["p02","./banners/02-star-summit"],["p03","./banners/03-rivalry"],["p04","./banners/04-champion-road"],["p05","./banners/05-striker-storm"]
-      ];
-      const assetVersion = "20260903-wide-shine-ball-blur";
-      for (const [id,base,transparent=false] of banners) new spine.SpinePlayer(id,{
-        jsonUrl:`${base}/banner.json?v=${assetVersion}`,
-        atlasUrl:`${base}/banner.atlas?v=${assetVersion}`,
-        animation:"animation",loop:true,alpha:true,premultipliedAlpha:false,showControls:false,backgroundColor:transparent ? "#00000000" : "#020812",
-        viewport:{x:-310,y:-136,width:620,height:272,padLeft:"0%",padRight:"0%",padTop:"0%",padBottom:"0%"}
-      });
-
       for (const card of document.querySelectorAll(".card")) {
         const link = card.querySelector('a[href$="/index.html"]');
-        if (!link) continue;
+        const host = card.querySelector("[data-spine-player]");
+        if (!link || !host) continue;
         const title = card.querySelector("h2").textContent.trim();
-        const src = link.getAttribute("href");
-        const snippet = `<iframe src="${src}" title="${title}" width="620" height="272" style="border:0;display:block;width:100%;max-width:620px;aspect-ratio:620/272;height:auto" loading="lazy" allow="autoplay"></iframe>`;
+        const base = host.dataset.spineBase;
+        const snippet = `<div data-spine-player data-spine-base="${base}" aria-label="${title}" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>\n<script src="./banners/shared/common-spine-player.js"><\/script>`;
         const embed = document.createElement("div");
         embed.className = "embed";
         const heading = document.createElement("div");
         heading.className = "embed-head";
         const label = document.createElement("span");
-        label.textContent = "嵌入语法";
+        label.textContent = "直接嵌入（不用 iframe）";
         const button = document.createElement("button");
         button.className = "copy-embed";
         button.type = "button";
-        button.textContent = "复制";
+        button.textContent = "複製";
         const code = document.createElement("code");
         code.textContent = snippet;
         button.addEventListener("click", async () => {
@@ -92,8 +86,8 @@
             document.execCommand("copy");
             input.remove();
           }
-          button.textContent = "已复制";
-          setTimeout(() => button.textContent = "复制", 1200);
+          button.textContent = "已複製";
+          setTimeout(() => button.textContent = "複製", 1200);
         });
         heading.append(label, button);
         embed.append(heading, code);

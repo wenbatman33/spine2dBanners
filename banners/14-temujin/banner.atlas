@@ -1,0 +1,162 @@
+artwork.png
+size: 1893,831
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+artwork
+  rotate: false
+  xy: 0, 0
+  size: 1893, 831
+  orig: 1893, 831
+  offset: 0, 0
+  index: -1
+
+character.png
+size: 1024,1536
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+character
+  rotate: false
+  xy: 0, 0
+  size: 1024, 1536
+  orig: 1024, 1536
+  offset: 0, 0
+  index: -1
+
+light.png
+size: 1254,1254
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+light
+  rotate: false
+  xy: 0, 0
+  size: 1254, 1254
+  orig: 1254, 1254
+  offset: 0, 0
+  index: -1
+
+smoke.png
+size: 1672,941
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+smoke
+  rotate: false
+  xy: 0, 0
+  size: 1672, 941
+  orig: 1672, 941
+  offset: 0, 0
+  index: -1
+
+fire.png
+size: 1056,1056
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fire/fire_000
+  rotate: false
+  xy: 876, 161
+  size: 122, 35
+  orig: 122, 35
+  offset: 0, 0
+  index: -1
+fire/fire_001
+  rotate: false
+  xy: 859, 124
+  size: 126, 35
+  orig: 126, 35
+  offset: 0, 0
+  index: -1
+fire/fire_002
+  rotate: false
+  xy: 635, 25
+  size: 129, 36
+  orig: 129, 36
+  offset: 0, 0
+  index: -1
+fire/fire_003
+  rotate: true
+  xy: 989, 297
+  size: 129, 36
+  orig: 129, 36
+  offset: 0, 0
+  index: -1
+fire/fire_004
+  rotate: false
+  xy: 649, 139
+  size: 132, 36
+  orig: 132, 36
+  offset: 0, 0
+  index: -1
+fire/fire_005
+  rotate: true
+  xy: 1014, 919
+  size: 134, 36
+  orig: 134, 36
+  offset: 0, 0
+  index: -1
+fire/fire_006
+  rotate: false
+  xy: 649, 101
+  size: 131, 36
+  orig: 131, 36
+  offset: 0, 0
+  index: -1
+fire/fire_007
+  rotate: false
+  xy: 635, 63
+  size: 130, 36
+  orig: 130, 36
+  offset: 0, 0
+  index: -1
+fire/fire_008
+  rotate: true
+  xy: 821, 46
+  size: 129, 36
+  orig: 129, 36
+  offset: 0, 0
+  index: -1
+fire/fire_009
+  rotate: false
+  xy: 859, 86
+  size: 114, 36
+  orig: 114, 36
+  offset: 0, 0
+  index: -1
+fire/fire_010
+  rotate: true
+  xy: 987, 56
+  size: 103, 36
+  orig: 103, 36
+  offset: 0, 0
+  index: -1
+fire/fire_011
+  rotate: true
+  xy: 1000, 192
+  size: 103, 35
+  orig: 103, 35
+  offset: 0, 0
+  index: -1
+fire/fire_012
+  rotate: false
+  xy: 859, 49
+  size: 106, 35
+  orig: 106, 35
+  offset: 0, 0
+  index: -1
+fire/fire_013
+  rotate: false
+  xy: 859, 11
+  size: 105, 36
+  orig: 105, 36
+  offset: 0, 0
+  index: -1
+fire/fire_014
+  rotate: true
+  xy: 783, 70
+  size: 105, 36
+  orig: 105, 36
+  offset: 0, 0
+  index: -1

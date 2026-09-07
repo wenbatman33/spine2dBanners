@@ -1,1 +1,2 @@
-<iframe src="./banners/01-champions-night/index.html" title="欧冠巅峰之夜" width="620" height="272" style="border:0;display:block;max-width:100%;aspect-ratio:620/272" loading="lazy" allow="autoplay"></iframe>
+<div data-spine-player data-spine-base="./banners/01-champions-night/banner" aria-label="歐冠巔峰之夜" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<script src="./banners/shared/common-spine-player.js"></script>

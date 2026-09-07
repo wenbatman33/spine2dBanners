@@ -6,8 +6,10 @@
 spine2dAssets/
 ├── index.html
 ├── README.md
+├── natural-motion-demo/       # 12 · 烈焰猴王
 └── banners/
     ├── shared/
+    │   ├── common-spine-player.js
     │   ├── spine-player-3.8.css
     │   └── spine-player-3.8.js
     ├── 01-champions-night/
@@ -17,23 +19,23 @@ spine2dAssets/
     └── 15-cowboy-hat-tip/
 ```
 
-01–11 款主要使用以下檔案，並共用 `banners/shared` 播放器：
+每款 Banner 至少包含以下標準檔案，並共用 `banners/shared` 播放器；素材圖檔依動畫需要可有一張或多張：
 
 ```text
 index.html
 banner.json
 banner.atlas
-banner.png
+*.png
 embed-code.txt
 ```
 
-14、15 款則把播放器、動畫資料、圖檔和 `index.html` 都放在各自的單一資料夾中，可單獨搬移，不需要複製 `shared`。15 款為「狂野印第安對決」，有槍口頂帽、停留再放回的循環動作；嵌入語法在該款的 `embed-code.txt`。
+首頁不使用 iframe。頁面只需引入 `common-spine-player.js`，它會自動載入共用 Spine runtime 與樣式、依可見範圍載入 Banner、離開畫面時暫停並停放播放器、限制同時使用的 WebGL 實例；控制列預設隱藏。14、15 款也已轉成標準 `banner.json + banner.atlas`，不再各自複製一套播放器。
 
 ## 使用方式
 
 - 全部 Banner：開啟根目錄的 `index.html`
-- 單款 Banner：開啟 `banners/款式名稱/index.html`
-- 嵌入其他網頁：複製該款資料夾內 `embed-code.txt` 的內容
+- 單款 Banner：開啟 `banners/款式名稱/index.html`；12 款位於 `natural-motion-demo/index.html`
+- 嵌入其他網頁：複製該款資料夾內 `embed-code.txt` 的內容，不需要 iframe
 - 搬移專案：複製整個 `spine2dAssets` 資料夾即可
 
 本機預覽：<http://127.0.0.1:4188/>

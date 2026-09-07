@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>烈焰猴王 · 自然動態示範</title>
-    <link rel="stylesheet" href="./spine-player.css" />
     <style>
       :root { color-scheme: dark; }
       * { box-sizing: border-box; }
@@ -34,32 +33,9 @@
   <body>
     <main class="banner" aria-label="烈焰猴王榮耀限定挑戰動畫 Banner">
       <img class="background" src="./background.png" alt="烈焰猴王榮耀限定挑戰" />
-      <div class="player" id="banner-player" aria-hidden="true"></div>
+      <div class="player" data-spine-player data-spine-base="./banner" data-spine-version="20260907-common-player" aria-hidden="true"></div>
     </main>
 
-    <script src="./spine-player.js"></script>
-    <script>
-      new spine.SpinePlayer("banner-player", {
-        jsonUrl: "./banner.json",
-        atlasUrl: "./banner.atlas",
-        animation: "animation",
-        loop: true,
-        alpha: true,
-        premultipliedAlpha: false,
-        backgroundColor: "#00000000",
-        fullScreenBackgroundColor: "#00000000",
-        showControls: false,
-        viewport: {
-          x: -310,
-          y: -136,
-          width: 620,
-          height: 272,
-          padLeft: "0%",
-          padRight: "0%",
-          padTop: "0%",
-          padBottom: "0%"
-        }
-      });
-    </script>
+    <script src="../banners/shared/common-spine-player.js"></script>
   </body>
 </html>

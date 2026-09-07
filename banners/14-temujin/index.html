@@ -18,24 +18,10 @@
   </style>
 </head>
 <body>
-  <main class="banner" id="banner" role="img" aria-label="鐵木真，一代天驕，征戰天下。武將呼吸抬臂、Q 版角色揮刀、戰火與煙霧向側上方飄移。"></main>
-  <script src="./spine-player.js"></script>
-  <script src="./banner-data.js?v=20260903-drifting-fire"></script>
+  <main class="banner" data-spine-player data-spine-base="./banner" data-spine-version="20260907-common-player" role="img" aria-label="鐵木真，一代天驕，征戰天下。武將呼吸抬臂、Q 版角色揮刀、戰火與煙霧向側上方飄移。"></main>
   <script>
     if(new URLSearchParams(location.search).has('transparent'))document.documentElement.classList.add('transparent');
-    const content = window.temujinBanner;
-    const rawDataURIs = {
-      'banner.json':'data:application/json;base64,'+btoa(unescape(encodeURIComponent(JSON.stringify(content.skeleton)))),
-      'banner.atlas':'data:text/plain;base64,'+btoa(content.atlas)
-    };
-    const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const player=new spine.SpinePlayer('banner',{
-      jsonUrl:'banner.json',atlasUrl:'banner.atlas',rawDataURIs,
-      animation:'animation',loop:true,alpha:true,premultipliedAlpha:false,
-      showControls:false,backgroundColor:'#00000000',fullScreenBackgroundColor:'#00000000',
-      viewport:{x:-310,y:-136,width:620,height:272,padLeft:'0%',padRight:'0%',padTop:'0%',padBottom:'0%'},
-      success(instance){if(reducedMotion)instance.pause()}
-    });
   </script>
+  <script src="../shared/common-spine-player.js"></script>
 </body>
 </html>
