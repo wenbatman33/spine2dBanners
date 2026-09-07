@@ -1,2 +1,0 @@
-<div data-spine-player data-spine-base="./natural-motion-demo/banner" aria-label="烈焰猴王" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
-<script src="./banners/shared/common-spine-player.js"></script>

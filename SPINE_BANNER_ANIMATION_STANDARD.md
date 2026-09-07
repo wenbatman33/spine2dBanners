@@ -3,8 +3,9 @@
 ## 1. 成品與檔案
 
 - 標準畫布：620 × 272 px，所有素材至少以 2 倍解析度製作，再縮小顯示。
-- 每款 Banner 都是可直接搬移的獨立資料夾，入口固定為 `index.html`。
-- 最小交付內容：`index.html`、`banner.json`、`banner.atlas`、所需 PNG 貼圖與 Spine Player runtime。
+- 每款 Banner 素材統一放在 `banners/編號-名稱/`，全站只有根目錄的 `index.html` 展示頁；不建立單款 HTML 頁面。
+- 每款交付內容：`banner.json`、`banner.atlas`、所需 PNG 貼圖與 `embed-code.txt`；播放器統一共用 `banners/shared/`。
+- 嵌入使用 `data-spine-player` 容器搭配共用播放器，不使用 iframe；搬移單款時保留其素材資料夾與 `banners/shared/`。
 - 所有路徑必須是相對路徑；不得依賴主站路由、轉址或建置工具。
 - 正式頁面隱藏 Spine 控制列，且不顯示測試文字或除錯資訊。
 
@@ -35,5 +36,5 @@
 - 以 620 × 272 原尺寸與 2 倍放大各檢查一次：字體清楚、無切邊、人物無模糊、無白邊／色邊。
 - 逐格檢查角色比例、手腳數量、輪廓、腳底落點與循環接縫。
 - 驗證 PNG Alpha 同時包含 0 與 255；頁面不得出現素材載入錯誤或控制列。
-- 驗證所有 JSON、Atlas、貼圖與 runtime 均能由獨立資料夾相對載入。
+- 驗證所有 JSON、Atlas、貼圖與共用 runtime 均能依嵌入網頁的相對路徑載入；搬移後也需確認路徑有效。
 - 動畫播放至少觀察 20 次循環；不可出現人物忽大忽小、閃爍、瞬移、部位斷裂或背景抖動。

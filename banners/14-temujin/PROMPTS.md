@@ -1,6 +1,6 @@
 # 鐵木真 · 橫式遊戲 Banner
 
-620 × 272。直接開啟 `index.html`；搬移時保留本資料夾與 `banners/shared`，不依賴 CDN 或建置工具。
+620 × 272。由根目錄展示頁預覽，或複製 `embed-code.txt` 嵌入其他網頁；搬移時保留本資料夾與 `banners/shared`，不依賴 CDN 或建置工具。
 
 ```html
 <div data-spine-player data-spine-base="./banners/14-temujin/banner" aria-label="鐵木真" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
@@ -21,9 +21,9 @@
 - `banner.json`：Spine 3.8 動畫與輪廓網格。
 - `banner.atlas`：圖集資訊。
 - `../shared/`：全站共用播放器與生命週期管理器。
-- `index.html`：可直接開啟的單獨頁面。
+- `embed-code.txt`：直接嵌入其他網頁的語法。
 
-生成工具的透明背景請求輸出仍含棋盤格，因此以 Spine 輪廓網格僅顯示素材本體；原始 PNG 不宣稱具備透明 alpha。播放器畫布外部透明，頁面預設深色背景；嵌入其他底色時可使用 `index.html?transparent`。
+生成工具的透明背景請求輸出仍含棋盤格，因此以 Spine 輪廓網格僅顯示素材本體；原始 PNG 不宣稱具備透明 alpha。播放器畫布外部透明，嵌入網頁可自行設定容器底色。
 
 ## Prompt set
 
