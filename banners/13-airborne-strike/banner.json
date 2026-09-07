@@ -16,6 +16,7 @@
     { "name": "ball-flight", "parent": "root" }
   ],
   "slots": [
+    { "name": "background", "bone": "root", "attachment": "scene/background" },
     { "name": "title-shine", "bone": "title-shine", "color": "ffffff00", "attachment": "effects/title-shine" },
     { "name": "smoke", "bone": "smoke-pulse", "color": "ffffffc0", "attachment": "effects/ball-smoke" },
     { "name": "player", "bone": "root", "attachment": "player/kick-static" },
@@ -26,6 +27,9 @@
     {
       "name": "default",
       "attachments": {
+        "background": {
+          "scene/background": { "width": 620, "height": 272 }
+        },
         "title-shine": {
           "effects/title-shine": { "width": 120, "height": 160 }
         },

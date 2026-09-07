@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spine Banner</title>
+  <style>
+    :root { color-scheme:dark; font-family:system-ui,"PingFang TC",sans-serif; background:#030712; color:#f4f8ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; width:min(100%,1380px); margin:auto; padding:36px 26px; }
+    article { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; }
+    article > [data-spine] { max-width:none; background:#020812; }
+    footer { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px; }
+    h2 { margin:0; font-size:17px; }
+    button { border:1px solid #315b87; border-radius:8px; padding:6px 12px; background:#0b1d36; color:#86f7f0; cursor:pointer; font:inherit; white-space:nowrap; }
+    button:hover { background:#12315a; }
+    pre { margin:0 16px 16px; padding:12px; border:1px solid #1c3858; border-radius:10px; background:#020813; color:#bcd3ef; white-space:pre-wrap; overflow-wrap:anywhere; }
+    code { font:12px/1.6 ui-monospace,monospace; }
+    @media (max-width:840px) { main { grid-template-columns:1fr; } }
+    @media (max-width:520px) { main { padding:16px 12px; gap:16px; } h2 { font-size:15px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <article data-banner="15-cowboy-hat-tip">15 · 狂野印第安對決</article>
+    <article data-banner="14-temujin">14 · 鐵木真</article>
+    <article data-banner="13-airborne-strike">13 · 凌空爆射</article>
+    <article data-banner="12-flame-monkey">12 · 烈焰猴王</article>
+    <article data-banner="11-beauty-wink">11 · 心動獎金眨眼挑戰</article>
+    <article data-banner="10-operative-idle">10 · 王牌特勤</article>
+    <article data-banner="09-treasure-chest">09 · 開箱暴擊</article>
+    <article data-banner="08-forward-dribble">08 · 一路帶球向前衝</article>
+    <article data-banner="07-lucky-tiger">07 · 福運小虎</article>
+    <article data-banner="06-gift-goddess">06 · 女神生日限定</article>
+    <article data-banner="01-champions-night">01 · 歐冠巔峰之夜</article>
+    <article data-banner="02-star-summit">02 · 群星巔峰夜</article>
+    <article data-banner="03-rivalry">03 · 豪門生死戰</article>
+    <article data-banner="04-champion-road">04 · 冠軍之路</article>
+    <article data-banner="05-striker-storm">05 · 鋒線風暴</article>
+  </main>
+  <script src="./banners/shared/common-spine-player.js"></script>
+  <script>
+    for (const card of document.querySelectorAll("[data-banner]")) {
+      const name = card.textContent.trim();
+      const id = card.dataset.banner;
+      const player = document.createElement("div");
+      player.dataset.spine = id;
+      player.setAttribute("aria-label", name);
+
+      const title = document.createElement("h2");
+      title.textContent = name;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = "複製";
+      button.setAttribute("aria-label", "複製" + name + "的嵌入碼");
+
+      const snippet = `<div data-spine="${id}"></div>\n<script src="./banners/shared/common-spine-player.js"><\/script>`;
+      const code = document.createElement("code");
+      code.textContent = snippet;
+      const pre = document.createElement("pre");
+      pre.append(code);
+      const footer = document.createElement("footer");
+      footer.append(title, button);
+      card.replaceChildren(player, footer, pre);
+
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(snippet);
+        } catch (_) {
+          const input = document.createElement("textarea");
+          input.value = snippet;
+          document.body.append(input);
+          input.select();
+          const copied = document.execCommand("copy");
+          input.remove();
+          if (!copied) {
+            button.textContent = "請手動複製";
+            return;
+          }
+        }
+        button.textContent = "已複製";
+        setTimeout(() => button.textContent = "複製", 1200);
+      });
+    }
+  </script>
+</body>
+</html>

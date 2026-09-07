@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/04-champion-road/banner" aria-label="冠軍之路" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="04-champion-road"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/11-beauty-wink/banner" aria-label="心動獎金眨眼挑戰" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="11-beauty-wink"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

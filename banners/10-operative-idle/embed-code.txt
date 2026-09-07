@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/10-operative-idle/banner" aria-label="王牌特勤" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="10-operative-idle"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

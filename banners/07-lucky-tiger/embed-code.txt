@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/07-lucky-tiger/banner" aria-label="福運小虎" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="07-lucky-tiger"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

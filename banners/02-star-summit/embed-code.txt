@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/02-star-summit/banner" aria-label="群星巔峰夜" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="02-star-summit"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

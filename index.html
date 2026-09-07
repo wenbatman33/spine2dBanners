@@ -1,93 +1,101 @@
 <!doctype html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spine Banner · 可攜式成品</title>
-    <style>
-      :root { color-scheme:dark; font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; background:#030712; color:#f4f8ff; }
-      * { box-sizing:border-box; }
-      body { margin:0; min-height:100vh; background:radial-gradient(circle at 50% 0%,rgba(29,92,180,.28),transparent 38%),#030712; }
-      main { width:min(100%,1380px); margin:auto; padding:36px 26px 64px; }
-      .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
-      .card { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; box-shadow:0 18px 50px rgba(0,0,0,.4); }
-      .player { position:relative; width:100%; aspect-ratio:620/272; overflow:hidden; background:#020812 center/cover no-repeat; border-bottom:1px solid #1b3553; }
-      .player > .spine-player { width:100%; height:100%; }
-      .player > .spine-player > canvas { display:block; width:100%; height:100%; }
-      .player .spine-player-controls { display:none!important; }
-      .player::after { position:absolute; right:12px; bottom:10px; padding:4px 7px; border-radius:6px; background:rgba(2,8,18,.72); color:#b9d0ed; font:10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; pointer-events:none; }
-      .player[data-spine-state="loading"]::after { content:"Spine 載入中"; }
-      .player[data-spine-state="parked"]::after { content:"滾動至此播放"; }
-      .player[data-spine-state="error"]::after { content:"保留預覽圖"; color:#ffd2d2; }
-      .player[data-spine-state="error"] .spine-player-error { display:none!important; }
-      .caption { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 16px 16px; }
-      h2 { margin:0; font-size:17px; }
-      .meta { color:#89a5c8; font-size:12px; text-align:right; }
-      .embed { padding:0 16px 16px; }
-      .embed-head { display:flex; align-items:center; justify-content:flex-end; margin-bottom:7px; color:#b9d0ed; font-size:12px; }
-      .copy-embed { appearance:none; border:1px solid #315b87; border-radius:8px; padding:5px 10px; background:#0b1d36; color:#86f7f0; cursor:pointer; font:inherit; }
-      .copy-embed:hover { background:#12315a; }
-      .embed code { display:block; min-height:72px; padding:10px 12px; overflow:auto; border:1px solid #1c3858; border-radius:10px; background:#020813; color:#bcd3ef; font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; white-space:pre-wrap; overflow-wrap:anywhere; user-select:all; }
-      @media (max-width:840px) { .grid{grid-template-columns:1fr;} }
-      @media (max-width:520px) { main{padding:22px 12px 40px;} .grid{gap:15px;} .caption{align-items:start;flex-direction:column;} .meta{text-align:left;} }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="grid">
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/15-cowboy-hat-tip/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/15-cowboy-hat-tip/artwork.png')" role="img" aria-label="狂野印第安對決 · 槍口頂帽動畫 Banner"></div><div class="caption"><h2>15 · 狂野印第安對決</h2><span class="meta">槍口頂帽 · 抬起、停留、復位循環</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/14-temujin/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/14-temujin/artwork.png')" role="img" aria-label="鐵木真橫式動畫 Banner"></div><div class="caption"><h2>14 · 鐵木真</h2><span class="meta">武將抬臂 · Q 版揮刀 · 飄移戰火與煙霧</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/13-airborne-strike/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/13-airborne-strike/background.png')"></div><div class="caption"><h2>13 · 凌空爆射</h2><span class="meta">寬幅標題掃光 · 球面旋轉、動態模糊與淡煙</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/12-flame-monkey/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/12-flame-monkey/background.png')"></div><div class="caption"><h2>12 · 烈焰猴王</h2><span class="meta">8 格連續慶祝動作 · 火焰金光</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/11-beauty-wink/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/11-beauty-wink/banner.png')"></div><div class="caption"><h2>11 · 心動獎金眨眼挑戰</h2><span class="meta">單一人物底圖 · 雙眼眨眼 / 單眼媚眼</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/10-operative-idle/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/10-operative-idle/banner.png')"></div><div class="caption"><h2>10 · 王牌特勤</h2><span class="meta">單一人物 Mesh · 呼吸 / 重心 / 轉頭</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/09-treasure-chest/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/09-treasure-chest/banner.png')"></div><div class="caption"><h2>09 · 開箱暴擊</h2><span class="meta">六段連續開箱 · 交叉過渡</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/08-forward-dribble/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/08-forward-dribble/banner.png')"></div><div class="caption"><h2>08 · 一路帶球向前衝</h2><span class="meta">8 格完整人體跑步序列</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/07-lucky-tiger/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/07-lucky-tiger/banner.png')"></div><div class="caption"><h2>07 · 福運小虎</h2><span class="meta">半身揮手</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/06-gift-goddess/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/06-gift-goddess/banner.png')"></div><div class="caption"><h2>06 · 女神生日限定</h2><span class="meta">禮盒旋轉</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/01-champions-night/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/01-champions-night/banner.png')"></div><div class="caption"><h2>01 · 歐冠巔峰之夜</h2><span class="meta">獎杯爆光</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/02-star-summit/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/02-star-summit/banner.png')"></div><div class="caption"><h2>02 · 群星巔峰夜</h2><span class="meta">慢推鏡</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/03-rivalry/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/03-rivalry/banner.png')"></div><div class="caption"><h2>03 · 豪門生死戰</h2><span class="meta">震屏衝擊</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/04-champion-road/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/04-champion-road/banner.png')"></div><div class="caption"><h2>04 · 冠軍之路</h2><span class="meta">鏡頭漂移</span></div></article>
-        <article class="card"><div class="player" data-spine-player data-spine-base="./banners/05-striker-storm/banner" data-spine-version="20260907-common-player" style="background-image:url('./banners/05-striker-storm/banner.png')"></div><div class="caption"><h2>05 · 鋒線風暴</h2><span class="meta">進球爆光</span></div></article>
-      </section>
-    </main>
-    <script src="./banners/shared/common-spine-player.js"></script>
-    <script>
-      for (const card of document.querySelectorAll(".card")) {
-        const host = card.querySelector("[data-spine-player]");
-        if (!host) continue;
-        const title = card.querySelector("h2").textContent.trim();
-        const base = host.dataset.spineBase;
-        const snippet = `<div data-spine-player data-spine-base="${base}" aria-label="${title}" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>\n<script src="./banners/shared/common-spine-player.js"><\/script>`;
-        const embed = document.createElement("div");
-        embed.className = "embed";
-        const heading = document.createElement("div");
-        heading.className = "embed-head";
-        const button = document.createElement("button");
-        button.className = "copy-embed";
-        button.type = "button";
-        button.textContent = "複製";
-        const code = document.createElement("code");
-        code.textContent = snippet;
-        button.addEventListener("click", async () => {
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spine Banner</title>
+  <style>
+    :root { color-scheme:dark; font-family:system-ui,"PingFang TC",sans-serif; background:#030712; color:#f4f8ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    [v-cloak] { display:none; }
+    main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; width:min(100%,1380px); margin:auto; padding:36px 26px; }
+    article { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; }
+    article > .spine-banner { max-width:none; background:#020812; }
+    footer { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px; }
+    h2 { margin:0; font-size:17px; }
+    button { border:1px solid #315b87; border-radius:8px; padding:6px 12px; background:#0b1d36; color:#86f7f0; cursor:pointer; font:inherit; white-space:nowrap; }
+    button:hover { background:#12315a; }
+    pre { margin:0 16px 16px; padding:12px; border:1px solid #1c3858; border-radius:10px; background:#020813; color:#bcd3ef; white-space:pre-wrap; overflow-wrap:anywhere; }
+    code { font:12px/1.6 ui-monospace,monospace; }
+    @media (max-width:840px) { main { grid-template-columns:1fr; } }
+    @media (max-width:520px) { main { padding:16px 12px; gap:16px; } h2 { font-size:15px; } }
+  </style>
+</head>
+<body>
+  <main id="app" v-cloak>
+    <article v-for="banner in banners" :key="banner.id">
+      <spine-banner :id="banner.id"></spine-banner>
+      <footer>
+        <h2>{{ banner.name }}</h2>
+        <button type="button" :aria-label="'複製' + banner.name + '的嵌入碼'" @click="copyBanner(banner.id)">
+          {{ copyStatus[banner.id] || '複製' }}
+        </button>
+      </footer>
+      <pre><code>{{ embedCode(banner.id) }}</code></pre>
+    </article>
+  </main>
+  <noscript>請開啟 JavaScript 以查看 Banner。</noscript>
+  <script type="module">
+    import { createApp, ref, reactive, onBeforeUnmount } from "./banners/shared/vue.esm-browser.prod.js";
+    import SpineBanner from "./banners/shared/SpineBanner.js";
+
+    createApp({
+      components: { SpineBanner },
+      setup() {
+        const banners = ref([
+          { id: "15-cowboy-hat-tip", name: "15 · 狂野印第安對決" },
+          { id: "14-temujin", name: "14 · 鐵木真" },
+          { id: "13-airborne-strike", name: "13 · 凌空爆射" },
+          { id: "12-flame-monkey", name: "12 · 烈焰猴王" },
+          { id: "11-beauty-wink", name: "11 · 心動獎金眨眼挑戰" },
+          { id: "10-operative-idle", name: "10 · 王牌特勤" },
+          { id: "09-treasure-chest", name: "09 · 開箱暴擊" },
+          { id: "08-forward-dribble", name: "08 · 一路帶球向前衝" },
+          { id: "07-lucky-tiger", name: "07 · 福運小虎" },
+          { id: "06-gift-goddess", name: "06 · 女神生日限定" },
+          { id: "01-champions-night", name: "01 · 歐冠巔峰之夜" },
+          { id: "02-star-summit", name: "02 · 群星巔峰夜" },
+          { id: "03-rivalry", name: "03 · 豪門生死戰" },
+          { id: "04-champion-road", name: "04 · 冠軍之路" },
+          { id: "05-striker-storm", name: "05 · 鋒線風暴" }
+        ]);
+        const copyStatus = reactive({});
+        const timers = new Map();
+        const embedCode = (id) => `<spine-banner id="${id}"></spine-banner>`;
+
+        async function copyBanner(id) {
+          clearTimeout(timers.get(id));
+          const snippet = embedCode(id);
           try {
             await navigator.clipboard.writeText(snippet);
+            copyStatus[id] = "已複製";
           } catch (_) {
             const input = document.createElement("textarea");
             input.value = snippet;
+            input.style.cssText = "position:fixed;left:-9999px;top:0";
+            const focused = document.activeElement;
             document.body.append(input);
             input.select();
-            document.execCommand("copy");
-            input.remove();
+            try {
+              copyStatus[id] = document.execCommand("copy") ? "已複製" : "請手動複製";
+            } catch (_) {
+              copyStatus[id] = "請手動複製";
+            } finally {
+              input.remove();
+              focused?.focus({ preventScroll: true });
+            }
           }
-          button.textContent = "已複製";
-          setTimeout(() => button.textContent = "複製", 1200);
-        });
-        heading.append(button);
-        embed.append(heading, code);
-        card.append(embed);
+          timers.set(id, setTimeout(() => {
+            delete copyStatus[id];
+            timers.delete(id);
+          }, 1200));
+        }
+
+        onBeforeUnmount(() => timers.forEach(clearTimeout));
+        return { banners, copyStatus, embedCode, copyBanner };
       }
-    </script>
-  </body>
+    }).mount("#app");
+  </script>
+</body>
 </html>

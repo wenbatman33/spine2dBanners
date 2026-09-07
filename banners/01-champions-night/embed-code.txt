@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/01-champions-night/banner" aria-label="歐冠巔峰之夜" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="01-champions-night"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

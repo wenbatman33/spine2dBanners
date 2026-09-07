@@ -5,6 +5,9 @@
 
   const MAX_LIVE_PLAYERS = 8;
   const MAX_PARKED_PLAYERS = 4;
+  const DEFAULT_ASSET_VERSION = "20260907-optimized";
+  const HOST_SELECTOR = "[data-spine], [data-spine-player]";
+  const LAYOUT_SELECTOR = `${HOST_SELECTOR}, .spine-banner`;
   const DEFAULT_VIEWPORT = {
     x: -310,
     y: -136,
@@ -20,9 +23,25 @@
   const live = new Set();
   const parked = [];
   const managerUrl = document.currentScript && document.currentScript.src;
-  const sharedBase = managerUrl ? new URL(".", managerUrl).href : "./banners/shared/";
+  const sharedBase = new URL(".", managerUrl || new URL("./banners/shared/common-spine-player.js", document.baseURI)).href;
   let serial = 0;
   let runtimePromise;
+
+  const layout = document.createElement("style");
+  layout.textContent = `
+    :where(${LAYOUT_SELECTOR}) {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      aspect-ratio: 620 / 272;
+      overflow: hidden;
+    }
+    :where(${LAYOUT_SELECTOR}) > .spine-player { width: 100%; height: 100%; }
+    :where(${LAYOUT_SELECTOR}) > .spine-player > canvas { display: block; width: 100%; height: 100%; }
+    :where(${LAYOUT_SELECTOR}):not([data-spine-controls="true"]) .spine-player-controls { display: none !important; }
+  `;
+  document.head.appendChild(layout);
 
   function loadStylesheet(url) {
     const existing = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).find((link) => link.href === url);
@@ -188,9 +207,10 @@
     return true;
   }
 
-  function configFromElement(host) {
-    const base = host.dataset.spineBase;
-    const version = host.dataset.spineVersion || "1";
+  function configFromElement(host, options) {
+    const id = options.id || host.dataset.spine;
+    const base = host.dataset.spineBase || (id && new URL(`../${id}/banner`, sharedBase).href);
+    const version = host.dataset.spineVersion ?? DEFAULT_ASSET_VERSION;
     const suffix = version ? `?v=${encodeURIComponent(version)}` : "";
     return {
       jsonUrl: host.dataset.spineJson || `${base}.json${suffix}`,
@@ -208,6 +228,7 @@
 
   async function create(entry) {
     if (entry.player || entry.creating || !entry.visible) return;
+    entry.destroyed = false;
     entry.creating = true;
     entry.state = "loading";
     entry.host.dataset.spineState = "loading";
@@ -231,7 +252,7 @@
     enforceLiveLimit(entry);
 
     entry.destroyed = false;
-    const config = configFromElement(entry.host);
+    const config = configFromElement(entry.host, entry.options);
     const userSuccess = entry.options.success;
     const userError = entry.options.error;
 
@@ -307,8 +328,13 @@
 
   function mount(host, options = {}) {
     if (!host || instances.has(host)) return instances.get(host);
-    if (!host.dataset.spineBase && !host.dataset.spineJson) {
-      throw new Error("Spine 容器需要 data-spine-base 或 data-spine-json");
+    if (!options.id && !host.dataset.spine && !host.dataset.spineBase && !host.dataset.spineJson) {
+      throw new Error("請指定 Banner id（資料夾名稱）");
+    }
+    host.classList.add("spine-banner");
+    if (!host.hasAttribute("role")) host.setAttribute("role", "img");
+    if (!host.hasAttribute("aria-label") && !host.hasAttribute("aria-labelledby")) {
+      host.setAttribute("aria-label", "動畫 Banner");
     }
 
     const entry = {
@@ -331,7 +357,7 @@
   }
 
   function mountAll(root = document) {
-    return Array.from(root.querySelectorAll("[data-spine-player]"), (host) => mount(host));
+    return Array.from(root.querySelectorAll(HOST_SELECTOR), (host) => mount(host));
   }
 
   function unmount(host) {

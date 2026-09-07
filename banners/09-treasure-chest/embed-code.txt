@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/09-treasure-chest/banner" aria-label="開箱暴擊" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="09-treasure-chest"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

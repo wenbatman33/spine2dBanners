@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/06-gift-goddess/banner" aria-label="女神生日限定" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="06-gift-goddess"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

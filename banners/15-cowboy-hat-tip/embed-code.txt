@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/15-cowboy-hat-tip/banner" aria-label="狂野印第安對決" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="15-cowboy-hat-tip"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

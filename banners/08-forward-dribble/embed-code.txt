@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/08-forward-dribble/banner" aria-label="一路帶球向前衝" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="08-forward-dribble"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

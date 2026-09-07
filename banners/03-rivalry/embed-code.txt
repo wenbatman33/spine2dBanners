@@ -1,2 +1,2 @@
-<div data-spine-player data-spine-base="./banners/03-rivalry/banner" aria-label="豪門生死戰" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="03-rivalry"></div>
 <script src="./banners/shared/common-spine-player.js"></script>

@@ -1,67 +1,30 @@
-
-lion-sheet.png
-size: 1536,1024
+background.png?v=20260907-optimized
+size: 620,272
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-lion/lion_000
+scene/background
+  rotate: false
+  xy: 0, 0
+  size: 620, 272
+  orig: 620, 272
+  offset: 0, 0
+  index: -1
+
+character.png?v=20260907-optimized
+size: 384,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+character
   rotate: false
   xy: 0, 0
   size: 384, 512
   orig: 384, 512
   offset: 0, 0
   index: -1
-lion/lion_001
-  rotate: false
-  xy: 384, 0
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_002
-  rotate: false
-  xy: 768, 0
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_003
-  rotate: false
-  xy: 1152, 0
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_004
-  rotate: false
-  xy: 0, 512
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_005
-  rotate: false
-  xy: 384, 512
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_006
-  rotate: false
-  xy: 768, 512
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
-lion/lion_007
-  rotate: false
-  xy: 1152, 512
-  size: 384, 512
-  orig: 384, 512
-  offset: 0, 0
-  index: -1
 
-effects.png
+effects.png?v=20260907-optimized
 size: 1056,1056
 format: RGBA8888
 filter: Linear,Linear

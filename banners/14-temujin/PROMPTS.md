@@ -3,7 +3,7 @@
 620 × 272。由根目錄展示頁預覽，或複製 `embed-code.txt` 嵌入其他網頁；搬移時保留本資料夾與 `banners/shared`，不依賴 CDN 或建置工具。
 
 ```html
-<div data-spine-player data-spine-base="./banners/14-temujin/banner" aria-label="鐵木真" style="width:100%;max-width:620px;aspect-ratio:620/272"></div>
+<div data-spine="14-temujin"></div>
 <script src="./banners/shared/common-spine-player.js"></script>
 ```
 

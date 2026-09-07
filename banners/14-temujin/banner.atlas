@@ -1,56 +1,56 @@
-artwork.png
-size: 1893,831
+artwork.png?v=20260907-optimized
+size: 1240,544
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 artwork
   rotate: false
   xy: 0, 0
-  size: 1893, 831
-  orig: 1893, 831
+  size: 1240, 544
+  orig: 1240, 544
   offset: 0, 0
   index: -1
 
-character.png
-size: 1024,1536
+character.png?v=20260907-optimized
+size: 512,768
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 character
   rotate: false
   xy: 0, 0
-  size: 1024, 1536
-  orig: 1024, 1536
+  size: 512, 768
+  orig: 512, 768
   offset: 0, 0
   index: -1
 
-light.png
-size: 1254,1254
+light.png?v=20260907-optimized
+size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 light
   rotate: false
   xy: 0, 0
-  size: 1254, 1254
-  orig: 1254, 1254
+  size: 512, 512
+  orig: 512, 512
   offset: 0, 0
   index: -1
 
-smoke.png
-size: 1672,941
+smoke.png?v=20260907-optimized
+size: 836,471
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 smoke
   rotate: false
   xy: 0, 0
-  size: 1672, 941
-  orig: 1672, 941
+  size: 836, 471
+  orig: 836, 471
   offset: 0, 0
   index: -1
 
-fire.png
+fire.png?v=20260907-optimized
 size: 1056,1056
 format: RGBA8888
 filter: Linear,Linear
