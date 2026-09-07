@@ -46,13 +46,26 @@ export default {
         manager.mount(this.$el, { id: this.id });
       } catch (error) {
         if (this.active && revision === this.revision) {
-          this.error = "Banner 載入失敗";
+          this.error = "加载失败";
           console.error(error);
         }
       }
     }
   },
   render() {
-    return h("div", { class: "spine-banner" }, this.error || null);
+    return h("div", {
+      class: "spine-banner",
+      style: { position: "relative", width: "100%", aspectRatio: "620 / 272" }
+    }, [h("span", {
+      class: "spine-loading",
+      role: "status",
+      lang: "zh-CN",
+      style: {
+        position: "absolute", inset: "0", zIndex: "1",
+        display: "grid", placeItems: "center", pointerEvents: "none",
+        background: "#071020", color: "#c4d2e6",
+        font: '14px/1.5 system-ui, "PingFang SC", sans-serif'
+      }
+    }, this.error || "加载中…")]);
   }
 };

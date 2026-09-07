@@ -40,8 +40,23 @@
     :where(${LAYOUT_SELECTOR}) > .spine-player { width: 100%; height: 100%; }
     :where(${LAYOUT_SELECTOR}) > .spine-player > canvas { display: block; width: 100%; height: 100%; }
     :where(${LAYOUT_SELECTOR}):not([data-spine-controls="true"]) .spine-player-controls { display: none !important; }
+    :where(${LAYOUT_SELECTOR}) .spine-player-button-icon-spine-logo { display: none !important; }
+    .spine-loading {
+      position: absolute; inset: 0; z-index: 1;
+      display: grid; place-items: center; pointer-events: none;
+      background: #071020; color: #c4d2e6;
+      font: 14px/1.5 system-ui, "PingFang SC", sans-serif;
+    }
+    :where(${LAYOUT_SELECTOR})[data-spine-state="ready"] > .spine-loading { display: none !important; }
   `;
   document.head.appendChild(layout);
+
+  function setHostState(host, state) {
+    host.dataset.spineState = state;
+    host.setAttribute("aria-busy", String(state === "loading"));
+    const message = host.querySelector(":scope > .spine-loading");
+    if (message) message.textContent = state === "error" ? "加载失败" : "加载中…";
+  }
 
   function loadStylesheet(url) {
     const existing = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).find((link) => link.href === url);
@@ -120,7 +135,7 @@
     entry.destroyed = true;
     if (!player) {
       entry.state = "idle";
-      entry.host.dataset.spineState = "idle";
+      setHostState(entry.host, "idle");
       live.delete(entry);
       const emptyParkedIndex = parked.indexOf(entry);
       if (emptyParkedIndex >= 0) parked.splice(emptyParkedIndex, 1);
@@ -137,7 +152,7 @@
 
     entry.player = null;
     entry.state = "idle";
-    entry.host.dataset.spineState = "idle";
+    setHostState(entry.host, "idle");
     live.delete(entry);
     const parkedIndex = parked.indexOf(entry);
     if (parkedIndex >= 0) parked.splice(parkedIndex, 1);
@@ -171,7 +186,7 @@
     safeCall(entry.player, "pause");
     if (entry.player.dom) entry.player.dom.remove();
     entry.state = "parked";
-    entry.host.dataset.spineState = "parked";
+    setHostState(entry.host, "parked");
     live.delete(entry);
     const prior = parked.indexOf(entry);
     if (prior >= 0) parked.splice(prior, 1);
@@ -197,7 +212,7 @@
     entry.host.appendChild(player.dom);
     player.stopRequestAnimationFrame = false;
     entry.state = "live";
-    entry.host.dataset.spineState = player.loaded ? "ready" : "loading";
+    setHostState(entry.host, player.loaded ? "ready" : "loading");
     live.add(entry);
 
     if (!document.hidden && !entry.reducedMotion) safeCall(player, "play");
@@ -231,11 +246,11 @@
     entry.destroyed = false;
     entry.creating = true;
     entry.state = "loading";
-    entry.host.dataset.spineState = "loading";
+    setHostState(entry.host, "loading");
     try {
       await loadRuntime();
     } catch (error) {
-      entry.host.dataset.spineState = "error";
+      setHostState(entry.host, "error");
       entry.state = "error";
       console.error(error);
       entry.creating = false;
@@ -245,7 +260,7 @@
       entry.creating = false;
       if (!entry.destroyed) {
         entry.state = "idle";
-        entry.host.dataset.spineState = "idle";
+        setHostState(entry.host, "idle");
       }
       return;
     }
@@ -259,18 +274,18 @@
     config.success = (player) => {
       if (entry.destroyed || entry.player !== player) return;
       if (entry.state === "parked") {
-        entry.host.dataset.spineState = "parked";
+        setHostState(entry.host, "parked");
         player.pause();
       } else {
         entry.state = "live";
-        entry.host.dataset.spineState = "ready";
+        setHostState(entry.host, "ready");
         if (entry.reducedMotion || document.hidden || !entry.visible) player.pause();
       }
       if (typeof userSuccess === "function") userSuccess(player);
     };
     config.error = (player, message) => {
       if (entry.destroyed || entry.player !== player) return;
-      entry.host.dataset.spineState = "error";
+      setHostState(entry.host, "error");
       if (typeof userError === "function") userError(player, message);
     };
 
@@ -278,11 +293,13 @@
     let player;
     try {
       player = new global.spine.SpinePlayer(entry.host, config);
+      // Use the DOM loading message, not Spine 3.8's WebGL logo/spinner.
+      if (player.loadingScreen) player.loadingScreen.draw = function () {};
     } catch (error) {
       global.onresize = pageResizeHandler;
       entry.creating = false;
       entry.state = "error";
-      entry.host.dataset.spineState = "error";
+      setHostState(entry.host, "error");
       console.error(error);
       return;
     }
@@ -332,6 +349,13 @@
       throw new Error("請指定 Banner id（資料夾名稱）");
     }
     host.classList.add("spine-banner");
+    if (!host.querySelector(":scope > .spine-loading")) {
+      const message = document.createElement("span");
+      message.className = "spine-loading";
+      message.setAttribute("role", "status");
+      message.lang = "zh-CN";
+      host.append(message);
+    }
     if (!host.hasAttribute("role")) host.setAttribute("role", "img");
     if (!host.hasAttribute("aria-label") && !host.hasAttribute("aria-labelledby")) {
       host.setAttribute("aria-label", "動畫 Banner");
@@ -349,7 +373,7 @@
       reducedMotion: global.matchMedia("(prefers-reduced-motion: reduce)").matches
     };
     instances.set(host, entry);
-    host.dataset.spineState = "idle";
+    setHostState(host, "idle");
 
     if (observer) observer.observe(host);
     else activate(entry);
