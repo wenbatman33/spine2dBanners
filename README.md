@@ -68,19 +68,21 @@ spine2dAssets/
 每款 Banner 至少包含以下標準檔案，並共用 `banners/shared` 播放器；素材圖檔依動畫需要可有一張或多張：
 
 ```text
+index.html       # 該款動畫的獨立預覽
 banner.json
 banner.atlas
 *.png
 embed-code.txt
 ```
 
-Vue 頁面透過 `SpineBanner` 元件管理動畫；非 Vue 頁面引入 `common-spine-player.js`。共用管理器負責載入 Spine runtime 與樣式、依可見範圍載入 Banner、離開畫面時暫停並停放播放器、管理 WebGL 實例；控制列預設隱藏。展示與嵌入均直接使用素材，不需要 iframe 或單款 HTML 頁面。
+Vue 頁面透過 `SpineBanner` 元件管理動畫；非 Vue 頁面引入 `common-spine-player.js`。共用管理器負責載入 Spine runtime 與樣式、依可見範圍載入 Banner、離開畫面時暫停並停放播放器、管理 WebGL 實例；控制列預設隱藏。每款 `index.html` 只供獨立預覽，不轉址、不複製素材；嵌入其他網頁仍直接使用元件，不需要 iframe。
 
 PNG 素材已做調色盤壓縮、移除中繼資料，並縮小過大的貼圖及同步更新圖集座標。27 張 PNG 總計約 7.57 MB（原約 36.68 MB，減少 79%）；保留透明背景與原有 HTML 嵌入方式。此容量不含動畫 JSON、圖集及共用播放器。
 
 ## 使用方式
 
 - 預覽全部 Banner：由 HTTP 靜態伺服器開啟根目錄的 `index.html`
+- 預覽單款 Banner：開啟 `banners/該款資料夾/index.html`，例如 <http://127.0.0.1:4188/banners/15-cowboy-hat-tip/>；同樣需透過 HTTP 開啟，不使用 `file://`
 - 嵌入 Vue 網頁：註冊 `SpineBanner` 元件後，使用首頁複製按鈕取得元件標籤
 - 嵌入非 Vue 網頁：複製該款資料夾內 `embed-code.txt` 的內容，不需要 iframe
 - 搬移單款：保留 `banners/該款資料夾/` 與 `banners/shared/` 的相對位置，`script src` 指向共用播放器
