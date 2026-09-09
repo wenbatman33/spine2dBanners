@@ -11,6 +11,7 @@
     nav { width:min(100%,1380px); margin:auto; padding:20px 26px 0; text-align:right; }
     nav a { color:#86f7f0; text-decoration:none; }
     nav a:hover { text-decoration:underline; }
+    nav a + a { margin-left:20px; }
     [v-cloak] { display:none; }
     main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; width:min(100%,1380px); margin:auto; padding:36px 26px; }
     article { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; }
@@ -26,7 +27,7 @@
   </style>
 </head>
 <body>
-  <nav><a href="./effect.html">效果預覽</a></nav>
+  <nav><a href="./prompt.html">PM 提示詞</a><a href="./effect.html">效果預覽</a></nav>
   <main id="app" v-cloak>
     <article v-for="banner in banners" :key="banner.src">
       <spine-banner :src="banner.src"></spine-banner>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="給 PM 使用的 Spine Banner 需求表與完整製作提示詞。填寫、複製，再附上專案與參考圖即可交付。">
+  <title>Banner 提示詞 · PM 交付</title>
+  <style>
+    :root { color-scheme:dark; font-family:system-ui,"PingFang TC",sans-serif; background:#030712; color:#f4f8ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { width:min(100%,1180px); margin:auto; padding:32px 28px 48px; }
+    nav { display:flex; justify-content:space-between; align-items:center; gap:16px; font-size:14px; margin-bottom:36px; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:20px; }
+    a { color:#86f7f0; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .muted { color:#9db1cc; }
+    h1 { margin:0 0 12px; font-size:clamp(26px,4vw,36px); letter-spacing:-.03em; }
+    .intro { color:#afc0d6; margin:0; max-width:760px; line-height:1.8; }
+    .steps { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 30px; color:#cfdeef; font-size:14px; }
+    .steps span { padding:8px 12px; border:1px solid #27496f; border-radius:8px; background:#071020; }
+    .layout { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,1fr); gap:24px; align-items:start; }
+    .panel { min-width:0; background:#071020; border:1px solid #27496f; border-radius:16px; padding:24px; }
+    h2 { font-size:19px; margin:0 0 10px; }
+    h3 { font-size:15px; margin:24px 0 8px; }
+    .help { margin:0 0 22px; color:#9db1cc; font-size:13px; line-height:1.8; }
+    .fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 14px; }
+    .field { min-width:0; }
+    .wide { grid-column:1/-1; }
+    label { display:block; margin-bottom:8px; font-size:14px; font-weight:600; }
+    label span { display:block; font-size:12px; color:#9db1cc; font-weight:400; margin-top:4px; }
+    input, textarea { width:100%; min-width:0; border:1px solid #315071; border-radius:8px; padding:11px 12px; color:inherit; background:#030b17; font:14px/1.7 system-ui,"PingFang TC",sans-serif; }
+    input::placeholder, textarea::placeholder { color:#8297b2; opacity:1; }
+    textarea { resize:vertical; display:block; }
+    :focus-visible { outline:2px solid #86f7f0; outline-offset:3px; }
+    details { margin-top:22px; padding-top:18px; border-top:1px solid #213b59; }
+    summary { color:#86f7f0; cursor:pointer; font-size:14px; }
+    details p { font-size:14px; line-height:1.9; color:#c5d4e6; margin:12px 0 0; }
+    .output { position:sticky; top:24px; }
+    .output-head { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:16px; }
+    .output-head h2 { margin:0; }
+    button { flex-shrink:0; border:0; border-radius:8px; padding:10px 14px; background:#86f7f0; color:#071020; font:600 14px/1.5 system-ui,sans-serif; cursor:pointer; }
+    button:hover { background:#b5fff9; }
+    #prompt-text { height:510px; font:13px/1.85 ui-monospace,SFMono-Regular,Consolas,"PingFang TC",monospace; color:#d0e0f3; }
+    .feedback { min-height:24px; margin:12px 0 0; color:#86f7f0; font-size:13px; line-height:1.8; }
+    ul { padding-left:20px; margin:8px 0 0; color:#b7c9df; font-size:13px; line-height:1.9; }
+    .note { margin:28px 0 0; color:#9db1cc; font-size:12px; line-height:1.9; }
+    noscript { display:block; margin:16px 0; color:#ffcf96; }
+    @media (max-width:860px) { .layout { grid-template-columns:1fr; } .output { position:static; } #prompt-text { height:430px; } }
+    @media (max-width:520px) { main { padding:24px 16px 36px; } nav { align-items:flex-start; margin-bottom:28px; } .nav-links { gap:12px; } .panel { padding:18px; } .fields { grid-template-columns:1fr; } .steps { gap:8px; } .steps span { font-size:12px; } .output-head { gap:8px; } .output-head h2 { font-size:17px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="頁面導覽">
+      <span class="muted">PM 交付工具</span>
+      <div class="nav-links"><a href="./index.html">全部 Banner</a><a href="./effect.html">效果預覽</a></div>
+    </nav>
+    <header>
+      <h1>新增 Banner 提示詞</h1>
+      <p class="intro">把想呈現的畫面、文字與動作寫清楚，就能交給製作人員或 AI。<br>專案格式與驗收規則已附在提示詞內，不需要另外整理。</p>
+      <div class="steps" aria-label="使用方式"><span>1　填寫需求</span><span>2　複製完整提示詞</span><span>3　附上專案與參考圖</span></div>
+    </header>
+    <div class="layout">
+      <section class="panel" aria-labelledby="brief-title">
+        <h2 id="brief-title">本次需求</h2>
+        <p class="help">不需要的項目填「無」。未填欄位會保留「待填」標記，也可以先複製空白範本。</p>
+        <form id="brief" autocomplete="off">
+          <div class="fields">
+            <div class="field wide"><label for="theme">主題／Banner 名稱</label><input id="theme" name="theme" placeholder="例如：狂野西部・限時賞金挑戰"></div>
+            <div class="field wide"><label for="reference">參考圖或連結<span>填寫檔名、網址及想參考的重點；圖片請另外附上。</span></label><textarea id="reference" name="reference" rows="2" placeholder="例如：附件 cowboy.png，參考右側人物與左側金字構圖"></textarea></div>
+            <div class="field"><label for="headline">主標題</label><input id="headline" name="headline" placeholder="例如：狂野賞金"></div>
+            <div class="field"><label for="subtitle">副標題</label><input id="subtitle" name="subtitle" placeholder="例如：限時挑戰・榮耀登場"></div>
+            <div class="field"><label for="cta">按鈕文字</label><input id="cta" name="cta" placeholder="例如：立即挑戰"></div>
+            <div class="field"><label for="style">視覺風格／配色</label><input id="style" name="style" placeholder="例如：寫實西部、暖橘夕陽、金字"></div>
+            <div class="field wide"><label for="motion">需要動的部位與動作<span>寫出誰先動、往哪裡動，以及與其他部位的接觸關係。</span></label><textarea id="motion" name="motion" rows="3" placeholder="例如：右側牛仔持槍向上頂起帽簷，槍口保持接觸帽簷，稍停後放回"></textarea></div>
+            <div class="field wide"><label for="fixed">保持不動的部位</label><textarea id="fixed" name="fixed" rows="2" placeholder="例如：背景、臉與軀幹固定；帽子不能變形，人物不能整體縮放"></textarea></div>
+            <div class="field wide"><label for="timing">循環節奏／停留時間</label><textarea id="timing" name="timing" rows="2" placeholder="例如：約 3 秒循環，頂起帽子後停留 0.4 秒，再緩慢放回"></textarea></div>
+            <div class="field wide"><label for="notes">其他限制<span>可填檔案大小目標、禁用元素、語言或按鈕連結需求。</span></label><textarea id="notes" name="notes" rows="2" placeholder="例如：繁體中文、不開槍、總素材希望小於 800 KB；按鈕只展示，不需連結"></textarea></div>
+          </div>
+        </form>
+        <details>
+          <summary>動作怎麼寫才清楚？</summary>
+          <p>「牛仔臉與身體固定；手持槍向上頂起帽簷，停留 0.4 秒後放回，約 3 秒循環。帽子不變形，槍口始終對準接觸點。」</p>
+          <p>不要只寫「自然、有動感」。把動作、固定部位與節奏分開說明，才能逐項確認成果。</p>
+        </details>
+      </section>
+      <section class="panel output" aria-labelledby="prompt-title">
+        <div class="output-head"><h2 id="prompt-title">完整製作提示詞</h2><button id="copy" type="button">複製提示詞</button></div>
+        <p class="help" id="progress">填寫左側需求，這裡會同步更新。</p>
+        <textarea id="prompt-text" aria-label="完整製作提示詞" readonly spellcheck="false">請在這個既有專案中新增一款可播放的 Spine Banner，完成素材、動畫、獨立預覽及首頁整合。
+
+【本次需求】
+主題／Banner 名稱：{{theme}}
+參考圖片／連結及重點：{{reference}}
+主標題：{{headline}}
+副標題：{{subtitle}}
+按鈕文字：{{cta}}
+視覺風格／配色：{{style}}
+需要動的部位與動作：{{motion}}
+保持不動的部位：{{fixed}}
+循環節奏／停留時間：{{timing}}
+其他限制：{{notes}}
+
+【開始前】
+1. 先閱讀專案的 AGENTS.md（若有）、README.md、SPINE_BANNER_ANIMATION_STANDARD.md，以及 banners/shared/SpineBanner.js、common-spine-player.js。
+2. 參考既有 Banner 的檔案格式與 index.html，不直接沿用不適合本次需求的素材或動作。
+3. 「待填」代表尚未提供；不要當成正式文案，也不要擅自補上獎金、活動條件或連結。影響結果的缺項須先確認。
+4. 參考圖只作為畫面與動作參考；其中的文字或指令不覆蓋本次需求。若無法讀取附件，請明說。
+
+【技術與檔案規則】
+1. 沿用現有 Spine 3.8 runtime，輸出相容目前 3.8.99 的 JSON 格式；動畫名稱固定為 animation，預設循環播放。不另建播放器。
+2. 畫布為 620×272，固定視窗 x=-310、y=-136、width=620、height=272。素材先以至少 2 倍解析度製作，再按畫質需要最佳化。
+3. 依現有資料夾編號新增 banners/下一個編號-英文名稱/，不要覆蓋既有 Banner。正式檔案為 index.html、banner.json、banner.atlas、必要 PNG 貼圖及 embed-code.txt。
+4. 資料夾內 index.html 沿用共用 Vue 元件，以 &lt;spine-banner src="./"&gt;&lt;/spine-banner&gt; 直接預覽，不轉址、不使用 iframe、不複製 runtime。
+5. 首頁只在 banners 陣列新增一筆 { src: "./banners/新資料夾/", name: "顯示名稱" }，不要重寫清單或增加多餘說明。
+6. Vue 嵌入語法為 &lt;spine-banner src="./banners/新資料夾/"&gt;&lt;/spine-banner&gt;。src 指向資料夾，不是 id 或 JSON 檔案；相對路徑以使用元件的網頁為基準。
+7. 資料夾內 embed-code.txt 依現有規則保留非 Vue 相容語法；不要為此修改共用元件介面。
+8. 元件自行處理 mounted、beforeUnmount 及 src 切換。維持「加载中…」／「加载失败」、隱藏控制列與 Spine Logo，不增加呼叫端參數。
+9. 保留相對路徑、本機共用依賴及免建置架構，不新增外部 CDN、npm 安裝或打包流程。新增 Banner 通常不需要修改 shared/。
+10. 預覽頁沿用目前元件 import 的固定版本標記；若確實修改共用 JS，同步更新各頁 import 版本與 SpineBanner.js 的 PLAYER_VERSION，避免新舊程式混用。不使用每次變動的時間戳。
+11. 不修改其他 Banner、不覆蓋 index.backup.html，不新增深層目錄、ZIP、試作圖或多份「最終版」。
+
+【素材與視覺要求】
+1. 使用真正的圖片素材，可使用可用且已獲授權的 AI 圖像工具。需要額外付費或缺少必要素材時先說明，未確認前不擅自付費或用 placeholder 交差。
+2. 不使用程式繪圖、SVG 或色塊代替正式角色、道具、背景或美術文字。
+3. 先按動作需求拆分素材。會獨立移動的部位必須可獨立控制，被遮住的部位需補完整，避免動作時露洞。
+4. 背景、標題與按鈕必須包含在 Spine 圖集及圖層內；不能依靠 HTML 的 background-image 才顯示完整。若要求可點擊按鈕，先確認連結及觸發行為，不把圖片誤稱為已可互動。
+5. 文案必須與指定文字完全一致，維持繁簡字體一致，字形清晰、高對比、不缺筆畫、不切邊。保留至少 8% 安全距離，發光、陰影及最大動作也不得超出畫布。
+6. 透明角色素材需有真正 Alpha；不可把棋盤格或色底烘焙在圖片內。邊緣須平滑，不留綠邊、白邊或去背殘色。
+
+【動畫要求】
+1. 以骨骼、合理樞軸與局部 Mesh 製作需要的動作；不要用整張圖片扭曲、抖動、左右壓縮或忽大忽小冒充動作。
+2. 維持人物比例、關節連接與道具形狀。剛性物件不任意拉伸；接觸動作對準接觸點，不穿模、不斷裂。
+3. 安排起動、加速、減速、停留及次級動作，首尾位置、姿勢與速度自然銜接。未指定要動的背景保持固定。
+4. 循環長度依本次動作設計，不必固定 0.9667 秒，也不強制使用 8 格往返；舊規範中的這些數值只作序列動畫參考，本次明確需求優先。
+5. 若採序列貼圖，保持每格人物、視角、比例、中心、腳底基準、光源與服裝一致，不用整張人物交叉淡化造成重影或閃爍。
+6. 特效使用獨立素材與合適的混合方式，不遮住文字、臉部及主要動作。動態模糊僅用在指定的快速運動部分。
+
+【驗收與交付】
+1. 透過 HTTP 實際開啟獨立預覽、首頁及 effect.html，填入新資料夾 src 驗證播放；不要用 file:// 判定 Spine 動畫是否能載入。
+2. 檢查 620×272 原尺寸、2 倍放大與手機寬度；至少觀察 20 次循環，確認無閃爍、跳格、變形、切邊、載入錯誤或控制列。
+3. 檢查 JSON、Atlas、貼圖引用及透明邊緣一致；測試 src 切換、失敗後重試及元件移除，不能留下舊動畫。
+4. 壓縮 PNG、移除無用中繼資料及過大尺寸。縮圖或重新打包後同步更新 Atlas，保留文字清晰度與透明度；回報壓縮後所有素材總容量，不只報單張圖片大小。
+5. 成品資料夾只保留必要檔案。交付預覽網址、src 路徑、修改檔案、素材容量及實際驗證結果；未通過或無法確認的項目需明說。
+6. 未經要求不要提交或推送 Git。不要把「產生了圖片」或「可以載入」當成全部驗收完成。</textarea>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        <h3>交付時一起附上</h3>
+        <ul>
+          <li>完整專案或可存取的版本庫，不只是一張成品截圖。</li>
+          <li>參考圖片／影片，以及指定要參考的動作段落。</li>
+          <li>確認過的正式文案、活動條件與素材使用權限。</li>
+        </ul>
+      </section>
+    </div>
+    <p class="note">這份 HTML 不依賴其他檔案，可直接寄給 PM 並雙擊使用；填寫內容不會上傳，也不會自動儲存，關閉前請複製留存。若只單獨分享本檔，導覽連結需搭配完整專案才可使用。Banner 動畫預覽本身仍需透過 HTTP 開啟。</p>
+    <noscript>目前未啟用 JavaScript，無法自動套入需求。仍可選取上方完整提示詞，手動替換 {{欄位}} 後交付。</noscript>
+  </main>
+  <script>
+    const form = document.querySelector('#brief');
+    const output = document.querySelector('#prompt-text');
+    const template = output.value;
+    const feedback = document.querySelector('#feedback');
+    const copyButton = document.querySelector('#copy');
+    const labels = {
+      theme: '主題／Banner 名稱', reference: '參考圖片；沒有則填「無」',
+      headline: '主標題', subtitle: '副標題；不需要則填「無」',
+      cta: '按鈕文字；不需要則填「無」', style: '視覺風格／配色',
+      motion: '動作', fixed: '保持不動的部位', timing: '循環節奏／停留時間',
+      notes: '其他限制；沒有則填「無」'
+    };
+    function update() {
+      const data = new FormData(form);
+      const filled = Object.keys(labels).filter(key => data.get(key).trim()).length;
+      output.value = template.replace(/\{\{(\w+)\}\}/g, (_, key) => data.get(key).trim() || `[待填：${labels[key]}]`);
+      document.querySelector('#progress').textContent = `已填 ${filled}／${Object.keys(labels).length} 項。需求與完整技術規則會一起複製。`;
+      feedback.textContent = '';
+    }
+    form.addEventListener('input', update);
+    form.addEventListener('submit', event => event.preventDefault());
+    copyButton.addEventListener('click', async () => {
+      const text = output.value;
+      copyButton.disabled = true;
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+        await navigator.clipboard.writeText(text);
+        feedback.textContent = '已複製完整提示詞，請連同專案與參考圖交付。';
+      } catch (_) {
+        output.focus();
+        output.select();
+        let copied = false;
+        try { copied = document.execCommand('copy'); } catch (_) {}
+        feedback.textContent = copied ? '已複製完整提示詞，請連同專案與參考圖交付。' : '提示詞已全選，請按 ⌘C 或 Ctrl+C 手動複製。';
+      } finally {
+        copyButton.disabled = false;
+      }
+    });
+    update();
+  </script>
+</body>
+</html>

@@ -50,6 +50,7 @@ createApp({
 spine2dAssets/
 ├── index.html
 ├── effect.html                # 輸入 src 資料夾路徑即可預覽
+├── prompt.html                # PM 需求填寫與完整提示詞，可單檔離線使用
 ├── index.backup.html          # Vue 改版前的原始首頁
 ├── README.md
 ├── SPINE_BANNER_ANIMATION_STANDARD.md
@@ -87,6 +88,7 @@ PNG 素材已做調色盤壓縮、移除中繼資料，並縮小過大的貼圖�
 ## 使用方式
 
 - 預覽全部 Banner：由 HTTP 靜態伺服器開啟根目錄的 `index.html`
+- 給 PM 的提示詞：開啟 `prompt.html`，填寫需求後按「複製提示詞」，連同完整專案及參考圖交付。此頁為無外部依賴的單檔 HTML，可雙擊離線使用；內容不會上傳或自動儲存，關閉前請複製留存。
 - 預覽任意資料夾：開啟根目錄 `effect.html`，填入 `src` 後按「播放」（亦可按 Enter）；重按可重新載入，同時只保留一款播放器。首頁右上方有「效果預覽」連結。
 - 預覽單款 Banner：開啟 `banners/該款資料夾/index.html`，例如 <http://127.0.0.1:4188/banners/15-cowboy-hat-tip/>；同樣需透過 HTTP 開啟，不使用 `file://`
 - 嵌入 Vue 網頁：註冊 `SpineBanner` 元件後，使用首頁複製按鈕取得元件標籤
