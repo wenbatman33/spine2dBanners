@@ -73,7 +73,7 @@
       link.href = url;
       link.dataset.commonSpineRuntime = "style";
       link.addEventListener("load", resolve, { once: true });
-      link.addEventListener("error", () => reject(new Error(`無法載入 ${url}`)), { once: true });
+      link.addEventListener("error", () => { link.remove(); reject(new Error(`無法載入 ${url}`)); }, { once: true });
       document.head.appendChild(link);
     });
   }
@@ -92,7 +92,7 @@
       script.src = url;
       script.dataset.commonSpineRuntime = "script";
       script.addEventListener("load", resolve, { once: true });
-      script.addEventListener("error", () => reject(new Error(`無法載入 ${url}`)), { once: true });
+      script.addEventListener("error", () => { script.remove(); reject(new Error(`無法載入 ${url}`)); }, { once: true });
       document.head.appendChild(script);
     });
   }
@@ -102,7 +102,7 @@
       runtimePromise = Promise.all([
         loadStylesheet(new URL("spine-player-3.8.css", sharedBase).href),
         loadScript(new URL("spine-player-3.8.js", sharedBase).href)
-      ]).then(requireRuntime);
+      ]).then(requireRuntime).catch((error) => { runtimePromise = null; throw error; });
     }
     return runtimePromise;
   }
@@ -222,9 +222,20 @@
     return true;
   }
 
+  function resolveFolderSource(src) {
+    if (typeof src !== "string" || !src.trim()) throw new Error("請填入 Banner 資料夾路徑");
+    const folder = new URL(src.trim(), document.baseURI);
+    if (!/^https?:$/.test(folder.protocol)) throw new Error("請使用 HTTP 或 HTTPS 資料夾網址");
+    if (/\.(?:json|atlas|html?)$/i.test(folder.pathname)) throw new Error("src 請指向資料夾，不是檔案");
+    if (!folder.pathname.endsWith("/")) folder.pathname += "/";
+    return folder.href;
+  }
+
   function configFromElement(host, options) {
     const id = options.id || host.dataset.spine;
-    const base = host.dataset.spineBase || (id && new URL(`../${id}/banner`, sharedBase).href);
+    const base = options.src
+      ? new URL("banner", options.src).href
+      : host.dataset.spineBase || (id && new URL(`../${id}/banner`, sharedBase).href);
     const version = host.dataset.spineVersion ?? DEFAULT_ASSET_VERSION;
     const suffix = version ? `?v=${encodeURIComponent(version)}` : "";
     return {
@@ -250,10 +261,15 @@
     try {
       await loadRuntime();
     } catch (error) {
+      if (entry.destroyed || instances.get(entry.host) !== entry) {
+        entry.creating = false;
+        return;
+      }
       setHostState(entry.host, "error");
       entry.state = "error";
       console.error(error);
       entry.creating = false;
+      if (typeof entry.options.error === "function") entry.options.error(null, error);
       return;
     }
     if (entry.destroyed || instances.get(entry.host) !== entry || !entry.visible) {
@@ -301,6 +317,7 @@
       entry.state = "error";
       setHostState(entry.host, "error");
       console.error(error);
+      if (typeof userError === "function") userError(null, error);
       return;
     }
     // Spine 3.8 assigns window.onresize for every instance. Restore the host
@@ -345,8 +362,9 @@
 
   function mount(host, options = {}) {
     if (!host || instances.has(host)) return instances.get(host);
-    if (!options.id && !host.dataset.spine && !host.dataset.spineBase && !host.dataset.spineJson) {
-      throw new Error("請指定 Banner id（資料夾名稱）");
+    if (options.src !== undefined) options = { ...options, src: resolveFolderSource(options.src) };
+    if (!options.src && !options.id && !host.dataset.spine && !host.dataset.spineBase && !host.dataset.spineJson) {
+      throw new Error("請指定 Banner src（資料夾路徑）");
     }
     host.classList.add("spine-banner");
     if (!host.querySelector(":scope > .spine-loading")) {

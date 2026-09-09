@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>效果預覽</title>
+  <style>
+    :root { color-scheme:dark; font-family:system-ui,"PingFang TC",sans-serif; background:#030712; color:#f4f8ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    [v-cloak] { display:none; }
+    main { width:min(100%,724px); margin:48px auto; padding:0 24px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:32px; }
+    h1 { font-size:24px; margin:0; }
+    a { color:#86f7f0; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    label { display:block; margin-bottom:10px; font-weight:600; }
+    .fields { display:flex; gap:10px; }
+    input { min-width:0; flex:1; border:1px solid #315b87; border-radius:8px; padding:12px; background:#071020; color:inherit; font:14px/1.5 ui-monospace,monospace; }
+    button { border:1px solid #86f7f0; border-radius:8px; padding:10px 22px; background:#86f7f0; color:#071020; font:inherit; font-weight:600; cursor:pointer; }
+    button:hover { background:#b5fff9; }
+    :focus-visible { outline:2px solid #86f7f0; outline-offset:3px; }
+    .hint { color:#9db1cc; font-size:13px; line-height:1.7; margin:12px 0 24px; }
+    .preview { width:min(100%,620px); margin:auto; overflow:hidden; border-radius:12px; box-shadow:0 0 0 1px #27496f; background:#071020; }
+    .empty { aspect-ratio:620/272; display:grid; place-items:center; color:#9db1cc; margin:0; }
+    .status { min-height:1.6em; color:#9db1cc; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+    .status.error { color:#ffb7ae; }
+    @media (max-width:520px) { main { margin:24px auto; padding:0 16px; } header { margin-bottom:24px; } button { padding:10px 16px; } }
+  </style>
+</head>
+<body>
+  <main id="app" v-cloak>
+    <header><h1>效果預覽</h1><a href="./index.html">全部 Banner</a></header>
+    <form @submit.prevent="play">
+      <label for="src">src 資料夾路徑</label>
+      <div class="fields">
+        <input id="src" v-model="input" type="text" spellcheck="false" autocomplete="off" aria-describedby="hint" placeholder="./banners/15-cowboy-hat-tip/">
+        <button type="submit">播放</button>
+      </div>
+      <p class="hint" id="hint">填入相對路徑或完整 HTTP／HTTPS 網址，不是電腦的檔案路徑。<br>資料夾內需有 banner.json、banner.atlas 及貼圖；跨網域網址需允許 CORS。</p>
+    </form>
+    <section class="preview" aria-label="動畫效果">
+      <spine-banner v-if="src" :key="revision" :src="src" @load="loaded" @error="failed"></spine-banner>
+      <p v-else class="empty">填入資料夾路徑，按下播放</p>
+    </section>
+    <p class="status" :class="{ error: state === 'error' }" role="status">{{ message }}</p>
+  </main>
+  <noscript>請開啟 JavaScript 以預覽動畫。</noscript>
+  <script type="module">
+    import { createApp } from "./banners/shared/vue.esm-browser.prod.js";
+    import SpineBanner from "./banners/shared/SpineBanner.js?v=20260909-src-2";
+
+    createApp({
+      components: { SpineBanner },
+      data: () => ({ input: "./banners/15-cowboy-hat-tip/", src: "", revision: 0, state: "idle", message: "" }),
+      methods: {
+        play() {
+          this.src = this.input.trim();
+          this.revision++;
+          this.state = this.src ? "loading" : "error";
+          this.message = this.src ? "加载中…" : "請先填入資料夾路徑。";
+        },
+        loaded() { this.state = "ready"; this.message = "播放中"; },
+        failed(error) {
+          this.state = "error";
+          this.message = error instanceof Error ? error.message : "載入失敗，請確認資料夾路徑、必要素材及跨網域權限。";
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+</html>

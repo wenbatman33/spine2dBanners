@@ -1,5 +1,6 @@
 import { h } from "./vue.esm-browser.prod.js";
 
+const PLAYER_VERSION = "20260909-src-2";
 let managerPromise;
 
 function loadManager() {
@@ -7,7 +8,9 @@ function loadManager() {
   if (!managerPromise) {
     managerPromise = new Promise((resolve, reject) => {
       const script = document.createElement("script");
-      script.src = new URL("./common-spine-player.js", import.meta.url).href;
+      const url = new URL("./common-spine-player.js", import.meta.url);
+      url.searchParams.set("v", PLAYER_VERSION);
+      script.src = url.href;
       script.onload = () => resolve(window.CommonSpinePlayer);
       script.onerror = () => {
         managerPromise = null;
@@ -22,7 +25,8 @@ function loadManager() {
 
 export default {
   name: "SpineBanner",
-  props: { id: { type: String, required: true } },
+  props: { src: { type: String, required: true } },
+  emits: ["load", "error"],
   data: () => ({ active: false, revision: 0, error: "" }),
   mounted() {
     this.active = true;
@@ -32,23 +36,34 @@ export default {
     this.active = false;
     window.CommonSpinePlayer?.unmount(this.$el);
   },
-  watch: { id: "mountPlayer" },
+  watch: { src: "mountPlayer" },
   methods: {
     async mountPlayer() {
       if (!this.active) return;
       const revision = ++this.revision;
       this.error = "";
+      window.CommonSpinePlayer?.unmount(this.$el);
+      this.$el.dataset.spineState = "loading";
+      this.$el.setAttribute("aria-busy", "true");
+      const current = () => this.active && revision === this.revision;
+      const failed = (error) => {
+        if (!current()) return;
+        this.error = "加载失败";
+        this.$el.dataset.spineState = "error";
+        this.$el.setAttribute("aria-busy", "false");
+        this.$emit("error", error);
+      };
       try {
         const manager = await loadManager();
-        // Ignore pending loads after removal or a newer id change.
-        if (!this.active || revision !== this.revision) return;
-        manager.unmount(this.$el);
-        manager.mount(this.$el, { id: this.id });
+        // Ignore pending loads after removal or a newer source change.
+        if (!current()) return;
+        manager.mount(this.$el, {
+          src: this.src,
+          success: () => { if (current()) this.$emit("load"); },
+          error: (_, message) => failed(message)
+        });
       } catch (error) {
-        if (this.active && revision === this.revision) {
-          this.error = "加载失败";
-          console.error(error);
-        }
+        failed(error);
       }
     }
   },

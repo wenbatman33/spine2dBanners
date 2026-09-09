@@ -5,10 +5,10 @@
 - 標準畫布：620 × 272 px，所有素材至少以 2 倍解析度製作，再縮小顯示。
 - 每款 Banner 素材統一放在 `banners/編號-名稱/`。根目錄 `index.html` 展示全部動畫，各款資料夾的 `index.html` 提供獨立預覽；預覽頁不轉址、不複製素材，統一使用共用 Vue 元件。
 - 每款交付內容：預覽用 `index.html`、`banner.json`、`banner.atlas`、所需 PNG 貼圖與 `embed-code.txt`；播放器統一共用 `banners/shared/`。
-- Vue 使用 `<spine-banner id="編號-名稱"></spine-banner>`，註冊元件一次即可；元件以 `mounted`／`beforeUnmount` 管理播放器，不要求呼叫端填寫 `data-spine` 或 `aria-label`。非 Vue 頁面保留 `<div data-spine="編號-名稱"></div>` 相容方式。尺寸、循環、版本與素材路徑統一處理，不在每款重複填寫。
-- 首頁每款只在 `banners` 陣列宣告一行 `{ id: "編號-名稱", name: "顯示名稱" }`，由 Vue 統一顯示動畫、名稱、複製按鈕與嵌入碼，不附加技術描述或獨立頁連結。
+- Vue 使用 `<spine-banner src="./banners/編號-名稱/"></spine-banner>`，`src` 為相對於使用網頁的資料夾路徑或完整 HTTP／HTTPS 網址；跨網域需允許 CORS。每款獨立預覽用 `src="./"`。元件以 `mounted`／`beforeUnmount` 管理播放器，`src` 改變時自動切換，不要求呼叫端填寫 `data-spine` 或 `aria-label`。非 Vue 頁面保留 `<div data-spine="編號-名稱"></div>` 相容方式。尺寸、循環、版本統一處理，不在每款重複填寫。
+- 首頁每款只在 `banners` 陣列宣告一行 `{ src: "./banners/編號-名稱/", name: "顯示名稱" }`，由 Vue 統一顯示動畫、名稱、複製按鈕與嵌入碼，不附加技術描述或獨立頁連結；根目錄 `effect.html` 提供輸入資料夾路徑的效果預覽。
 - 搬移單款時保留其素材資料夾與 `banners/shared/` 的相對位置，嵌入網頁只需調整共用播放器的 `script src`。
-- 所有路徑必須是相對路徑；不得依賴主站路由、轉址或建置工具。
+- 專案內 runtime 與素材引用使用相對路徑；`src` 可另指定完整 HTTP／HTTPS 素材資料夾網址。不得依賴主站路由、轉址或建置工具。
 - 正式頁面隱藏 Spine 控制列，且不顯示測試文字或除錯資訊。
 
 ## 2. 視覺素材

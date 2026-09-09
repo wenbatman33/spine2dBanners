@@ -8,6 +8,9 @@
     :root { color-scheme:dark; font-family:system-ui,"PingFang TC",sans-serif; background:#030712; color:#f4f8ff; }
     * { box-sizing:border-box; }
     body { margin:0; }
+    nav { width:min(100%,1380px); margin:auto; padding:20px 26px 0; text-align:right; }
+    nav a { color:#86f7f0; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
     [v-cloak] { display:none; }
     main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; width:min(100%,1380px); margin:auto; padding:36px 26px; }
     article { min-width:0; overflow:hidden; border:1px solid #27496f; border-radius:16px; background:#071020; }
@@ -23,53 +26,54 @@
   </style>
 </head>
 <body>
+  <nav><a href="./effect.html">效果預覽</a></nav>
   <main id="app" v-cloak>
-    <article v-for="banner in banners" :key="banner.id">
-      <spine-banner :id="banner.id"></spine-banner>
+    <article v-for="banner in banners" :key="banner.src">
+      <spine-banner :src="banner.src"></spine-banner>
       <footer>
         <h2>{{ banner.name }}</h2>
-        <button type="button" :aria-label="'複製' + banner.name + '的嵌入碼'" @click="copyBanner(banner.id)">
-          {{ copyStatus[banner.id] || '複製' }}
+        <button type="button" :aria-label="'複製' + banner.name + '的嵌入碼'" @click="copyBanner(banner.src)">
+          {{ copyStatus[banner.src] || '複製' }}
         </button>
       </footer>
-      <pre><code>{{ embedCode(banner.id) }}</code></pre>
+      <pre><code>{{ embedCode(banner.src) }}</code></pre>
     </article>
   </main>
   <noscript>請開啟 JavaScript 以查看 Banner。</noscript>
   <script type="module">
     import { createApp, ref, reactive, onBeforeUnmount } from "./banners/shared/vue.esm-browser.prod.js";
-    import SpineBanner from "./banners/shared/SpineBanner.js";
+    import SpineBanner from "./banners/shared/SpineBanner.js?v=20260909-src-2";
 
     createApp({
       components: { SpineBanner },
       setup() {
         const banners = ref([
-          { id: "15-cowboy-hat-tip", name: "15 · 狂野印第安對決" },
-          { id: "14-temujin", name: "14 · 鐵木真" },
-          { id: "13-airborne-strike", name: "13 · 凌空爆射" },
-          { id: "12-flame-monkey", name: "12 · 烈焰猴王" },
-          { id: "11-beauty-wink", name: "11 · 心動獎金眨眼挑戰" },
-          { id: "10-operative-idle", name: "10 · 王牌特勤" },
-          { id: "09-treasure-chest", name: "09 · 開箱暴擊" },
-          { id: "08-forward-dribble", name: "08 · 一路帶球向前衝" },
-          { id: "07-lucky-tiger", name: "07 · 福運小虎" },
-          { id: "06-gift-goddess", name: "06 · 女神生日限定" },
-          { id: "01-champions-night", name: "01 · 歐冠巔峰之夜" },
-          { id: "02-star-summit", name: "02 · 群星巔峰夜" },
-          { id: "03-rivalry", name: "03 · 豪門生死戰" },
-          { id: "04-champion-road", name: "04 · 冠軍之路" },
-          { id: "05-striker-storm", name: "05 · 鋒線風暴" }
+          { src: "./banners/15-cowboy-hat-tip/", name: "15 · 狂野印第安對決" },
+          { src: "./banners/14-temujin/", name: "14 · 鐵木真" },
+          { src: "./banners/13-airborne-strike/", name: "13 · 凌空爆射" },
+          { src: "./banners/12-flame-monkey/", name: "12 · 烈焰猴王" },
+          { src: "./banners/11-beauty-wink/", name: "11 · 心動獎金眨眼挑戰" },
+          { src: "./banners/10-operative-idle/", name: "10 · 王牌特勤" },
+          { src: "./banners/09-treasure-chest/", name: "09 · 開箱暴擊" },
+          { src: "./banners/08-forward-dribble/", name: "08 · 一路帶球向前衝" },
+          { src: "./banners/07-lucky-tiger/", name: "07 · 福運小虎" },
+          { src: "./banners/06-gift-goddess/", name: "06 · 女神生日限定" },
+          { src: "./banners/01-champions-night/", name: "01 · 歐冠巔峰之夜" },
+          { src: "./banners/02-star-summit/", name: "02 · 群星巔峰夜" },
+          { src: "./banners/03-rivalry/", name: "03 · 豪門生死戰" },
+          { src: "./banners/04-champion-road/", name: "04 · 冠軍之路" },
+          { src: "./banners/05-striker-storm/", name: "05 · 鋒線風暴" }
         ]);
         const copyStatus = reactive({});
         const timers = new Map();
-        const embedCode = (id) => `<spine-banner id="${id}"></spine-banner>`;
+        const embedCode = (src) => `<spine-banner src="${src}"></spine-banner>`;
 
-        async function copyBanner(id) {
-          clearTimeout(timers.get(id));
-          const snippet = embedCode(id);
+        async function copyBanner(src) {
+          clearTimeout(timers.get(src));
+          const snippet = embedCode(src);
           try {
             await navigator.clipboard.writeText(snippet);
-            copyStatus[id] = "已複製";
+            copyStatus[src] = "已複製";
           } catch (_) {
             const input = document.createElement("textarea");
             input.value = snippet;
@@ -78,17 +82,17 @@
             document.body.append(input);
             input.select();
             try {
-              copyStatus[id] = document.execCommand("copy") ? "已複製" : "請手動複製";
+              copyStatus[src] = document.execCommand("copy") ? "已複製" : "請手動複製";
             } catch (_) {
-              copyStatus[id] = "請手動複製";
+              copyStatus[src] = "請手動複製";
             } finally {
               input.remove();
               focused?.focus({ preventScroll: true });
             }
           }
-          timers.set(id, setTimeout(() => {
-            delete copyStatus[id];
-            timers.delete(id);
+          timers.set(src, setTimeout(() => {
+            delete copyStatus[src];
+            timers.delete(src);
           }, 1200));
         }
 
